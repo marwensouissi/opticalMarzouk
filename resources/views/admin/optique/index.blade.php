@@ -4,31 +4,34 @@
 @section('title', 'Optique')
 
 <style>
-.table td {
-    vertical-align: middle;
-    max-width: 200px;
-    overflow: hidden;
-    white-space: normal; /* Change this property */
-    word-wrap: break-word;
-}
+  .table td {
+      vertical-align: middle;
+      max-width: 200px;
+      overflow: hidden;
+      white-space: normal;
+      word-wrap: break-word;
+      padding: 10px; /* Set a fixed padding for consistent spacing */
+  }
 
-    .table img {
-        max-width: 100%;
-        min-width: 100%;
-        height: auto;
-        border-radius: 15px;
-    }
+  .table img {
+      max-width: 100%;
+      min-width: 100%;
+      height: auto;
+      border-radius: 15px;
+  }
 
-    .btn-action {
-        margin-right: 5px;
-    }
+  .btn-action {
+      margin-right: 5px;
+  }
 
-    /* Set the max-width for the table */
-    .table-responsive {
-        max-width: 95%;
-        overflow-x: auto;
-    }
+  /* Set the max-width for the table */
+  .table-responsive {
+      max-width: 95%;
+      overflow-x: auto;
+  }
+
 </style>
+
 <div style="margin-left: -50px">
 
 <div class="d-flex justify-content-between align-items-center mx-5 mt-4">
@@ -96,5 +99,6 @@
     </table>
 </div>
 </div>
+
 <!-- END: Content-->
 @endsection

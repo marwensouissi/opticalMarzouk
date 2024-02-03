@@ -63,7 +63,7 @@
         const previewArea = document.getElementById('image-preview');
         const imageInput = document.getElementById('image');
 
-        imageInput.addEventListener('change', function(event) {
+        imageInput.addEventListener('change', function(event) { 
             const files = event.target.files;
 
             // Clear previous previews if any
