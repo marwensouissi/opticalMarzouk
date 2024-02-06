@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class LunetteOpt extends Model
 {
-    protected $fillable = ['reference', 'marque', 'prix', 'type_monture', 'matiere_monture', 'couleur', 'etat','image'];
+    protected $fillable = ['reference', 'marque', 'prix', 'type_monture', 'matiere_monture', 'couleur', 'etat', 'apl','image'];
 }

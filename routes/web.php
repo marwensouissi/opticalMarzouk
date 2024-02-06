@@ -28,11 +28,11 @@ Route::middleware([
 });
 
 
-Route::resource('my_admin/opt', \App\Http\Controllers\LunetteOptController::class);
+Route::get('my_admin/opt', [\App\Http\Controllers\LunetteOptController::class, 'index'])->name('lunetteopt.index');
 Route::get('/optique/ajouter', [\App\Http\Controllers\LunetteOptController::class, 'create'])->name('lunetteopt.create');
 Route::post('/optique/ajouter', [\App\Http\Controllers\LunetteOptController::class, 'store'])->name('lunetteopt.store');
 Route::get('lunetteopt/{lunetteopt}/edit', [\App\Http\Controllers\LunetteOptController::class, 'edit'])->name('lunetteopt.edit');
 // Update LunetteOpt
 Route::put('lunetteopt/{lunetteopt}', [\App\Http\Controllers\LunetteOptController::class, 'update'])->name('lunetteopt.update');
 // Delete LunetteOpt
-Route::delete('lunetteopt/{lunetteopt}', [\App\Http\Controllers\LunetteOptController::class, 'destroy'])->name('lunetteopt.destroy');
+Route::delete('lunetteopt/{id}', [\App\Http\Controllers\LunetteOptController::class, 'destroy'])->name('lunetteopt.destroy');

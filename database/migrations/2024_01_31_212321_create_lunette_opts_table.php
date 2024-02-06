@@ -20,7 +20,10 @@ return new class extends Migration
             $table->string('matiere_monture');
             $table->string('couleur');
             $table->string('image');
+            $table->string('cover');
             $table->integer('etat');
+            $table->integer('apl');
+
             // Add any other columns you need
             $table->timestamps();
         });
@@ -29,8 +32,9 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('lunette_opts');
+        Schema::table('lunette_opts', function (Blueprint $table) {
+        });
     }
 };

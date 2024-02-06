@@ -16,7 +16,7 @@
   .table img {
       max-width: 100%;
       min-width: 100%;
-      height: auto;
+      height: 200px;
       border-radius: 15px;
   }
 
@@ -37,7 +37,7 @@
 <div class="d-flex justify-content-between align-items-center mx-5 mt-4">
     <h4 class="mr-2" style="font-family: sans-serif">Liste Des Lunettes</h4>
     <p class="card-description">
-        <button type="submit" class="btn btn-success text-white">Ajouter Lunette</button>
+        <a href="{{ route('lunetteopt.create') }}" class="btn btn-success text-white">Ajouter Lunette</a>
     </p>
 </div>
 
@@ -49,9 +49,10 @@
                 <th>Marque</th>
                 <th>Reference</th>
                 <th>Prix</th>
-                <th>Type Monture</th>
-                <th>Matiere Monture</th>
+                <th>Type </th>
+                <th>Matiere </th>
                 <th>Couleur</th>
+                <th>Aplique</th>
                 <th>Etat</th>
                 <th>Actions</th>
             </tr>
@@ -60,11 +61,11 @@
             @foreach($lunettesOptiques as $lunetteOpt)
                 <tr class="{{ $loop->iteration % 2 == 0 ? 'even-row' : 'odd-row' }}">
                     <td>
-                        @if($lunetteOpt->image)
-                            <?php $image = explode(',', $lunetteOpt->image); ?>
-                            <img src="{{ asset('produit/optique/' . $image[1]) }}" alt="Image">
+                        @if($lunetteOpt->cover)
+                            <?php $coverImage = explode(',', $lunetteOpt->cover); ?>
+                            <img src="{{ asset('produit/optique/' . $coverImage[0]) }}" alt="Cover Image">
                         @else
-                            No Image
+                            No Cover Image
                         @endif
                     </td>
                     <td>{{ $lunetteOpt->reference }}</td>
@@ -73,6 +74,15 @@
                     <td>{{ $lunetteOpt->type_monture }}</td>
                     <td>{{ $lunetteOpt->matiere_monture }}</td>
                     <td>{{ $lunetteOpt->couleur }}</td>
+                    <td>
+                        @if($lunetteOpt->apl === 0)
+                            Sans Aplique
+                        @elseif($lunetteOpt->apl === 1)
+                            Avec Aplique
+                        @else
+                            <!-- Handle other cases if needed -->
+                        @endif
+                    </td>
                     <td>
                         @if($lunetteOpt->etat === 0)
                             En stock
@@ -87,11 +97,13 @@
                         <a href="{{ route('lunetteopt.edit', $lunetteOpt->id) }}" class="btn btn-warning btn-action"><i class="mdi mdi-wrench"></i></a>
 
                         <!-- Delete button (You may want to add a confirmation dialog for deletion) -->
-                        <form action="{{ route('lunetteopt.destroy', $lunetteOpt->id) }}" method="post" style="display: inline;">
+                        <form action="{{ route('lunetteopt.destroy', $lunetteOpt->id) }}" method="post" style="display: inline;" onsubmit="return confirm('Vous êtes Sure de Supprimer?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-action"><i class="mdi mdi-delete-forever"></i></button>
                         </form>
+
+                        
                     </td>
                 </tr>
             @endforeach

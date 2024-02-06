@@ -24,6 +24,18 @@
             <label for="marque" class="form-label">Marque:</label>
             <input type="text" class="form-control" id="marque" name="marque" required>
         </div>
+        <div class="mb-3">
+            <label for="aplique" class="form-label">Aplique:</label>
+            <div>
+                <input type="radio" id="avec_aplique" name="apl" value="1" {{ old('apl') == '1' ? 'checked' : '' }}>
+                <label for="avec_aplique">Avec Aplique</label>
+            </div>
+            <div>
+                <input type="radio" id="sans_aplique" name="apl" value="0" {{ old('apl', '0') == '0' ? 'checked' : '' }}>
+                <label for="sans_aplique">Sans Aplique</label>
+            </div>
+        </div>
+        
 
         <div class="mb-3">
             <label for="prix" class="form-label">Prix:</label>
@@ -47,41 +59,63 @@
 
 
         <div class="mb-3">
-            <label for="image" class="form-label">Image:</label>
+            <label for="cover" class="form-label">Cover Image:</label>
+            <input type="file" name="cover" id="cover" class="form-control">
+            
+            <!-- Image preview area for cover -->
+            <div id="cover-preview" class="mt-2"></div>
+        </div>
+    
+        <div class="mb-3">
+            <label for="image" class="form-label">Other Images:</label>
             <input type="file" name="image[]" id="image" multiple class="form-control">
-
-            <!-- Image preview area -->
-
-
+            
+            <!-- Image preview area for other images -->
+            <div id="image-preview" class="mt-2"></div>
+        </div>
+    
         <button type="submit" class="btn btn-success text-white" style="float: right">Ajouter LunetteOpt</button>
-    </form>
-</div>
-
-<script>
-    // JavaScript to handle image preview
-    window.addEventListener('load', function() {
-        const previewArea = document.getElementById('image-preview');
-        const imageInput = document.getElementById('image');
-
-        imageInput.addEventListener('change', function(event) { 
-            const files = event.target.files;
-
-            // Clear previous previews if any
-            previewArea.innerHTML = '';
-
-            // Display new previews
-            for (const file of files) {
-                const image = document.createElement('img');
-                image.src = URL.createObjectURL(file);
-                image.style.width = '150px';
-                image.style.marginRight = '2px';
-                image.style.marginBottom = '2px';
-                previewArea.appendChild(image);
+    
+        <script>
+            // JavaScript to handle image preview for cover
+            window.addEventListener('load', function () {
+                const coverPreviewArea = document.getElementById('cover-preview');
+                const coverInput = document.getElementById('cover');
+    
+                coverInput.addEventListener('change', function () {
+                    handleImageChange(coverInput, coverPreviewArea);
+                });
+            });
+    
+            // JavaScript to handle image preview for other images
+            window.addEventListener('load', function () {
+                const imagePreviewArea = document.getElementById('image-preview');
+                const imageInput = document.getElementById('image');
+    
+                imageInput.addEventListener('change', function () {
+                    handleImageChange(imageInput, imagePreviewArea);
+                });
+            });
+    
+            function handleImageChange(input, previewArea) {
+                const files = input.files;
+    
+                // Clear previous previews if any
+                previewArea.innerHTML = '';
+    
+                // Display new previews
+                for (const file of files) {
+                    const image = document.createElement('img');
+                    image.src = URL.createObjectURL(file);
+                    image.style.width = '150px';
+                    image.style.marginRight = '2px';
+                    image.style.marginBottom = '2px';
+                    previewArea.appendChild(image);
+                }
             }
-        });
-    });
-</script>
-
+        </script>
+    
+    </form>
   <!-- END: Content-->
 
   @endsection
