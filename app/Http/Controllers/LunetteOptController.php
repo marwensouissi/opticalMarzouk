@@ -12,15 +12,25 @@ class LunetteOptController extends Controller
 {
 
 
-    public function index()
+    public function index(Request $request)
     {
-        // Fetch all Lunettes Optiques from the database
-        $lunettesOptiques = LunetteOpt::all();
-
+        // Check if there is a search query
+        if ($request->has('search')) {
+            $searchQuery = $request->input('search');
+    
+            // Perform the search using the 'reference' or 'marque' fields
+            $lunettesOptiques = LunetteOpt::where('reference', 'LIKE', "%$searchQuery%")
+                ->orWhere('marque', 'LIKE', "%$searchQuery%")
+                ->get();
+        } else {
+            // Fetch all Lunettes Optiques from the database
+            $lunettesOptiques = LunetteOpt::all();
+        }
+    
         // Pass the Lunettes Optiques data to the view
         return view('admin.optique.index', compact('lunettesOptiques'));
     }
-
+    
 
 
     public function create()
@@ -192,5 +202,32 @@ public function update(Request $request, $id)
 
         return redirect()->route('lunetteopt.index')->with('success', 'LunetteOpt updated successfully!');
     }
+
+    public function search(Request $request)
+    {
+        // Validate the search query
+        $request->validate([
+            'search' => 'nullable|string',
+        ]);
+    
+        // Get the search query from the form
+        $searchQuery = $request->input('search');
+    
+        // Check if the search query is empty or null
+        if (empty($searchQuery)) {
+            // Fetch all Lunettes Optiques from the database
+            $lunettesOptiques = LunetteOpt::all();
+        } else {
+            // Perform the search using the 'reference' or 'marque' fields
+            $lunettesOptiques = LunetteOpt::where('reference', 'LIKE', "%$searchQuery%")
+                ->orWhere('marque', 'LIKE', "%$searchQuery%")
+                ->get();
+        }
+    
+        // Pass the results to the view
+        return view('admin.optique.index', compact('lunettesOptiques'));
+    }
+    
+
 
 }

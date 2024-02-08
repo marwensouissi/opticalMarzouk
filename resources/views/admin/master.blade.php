@@ -11,7 +11,7 @@
   {{-- <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css"> --}}
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/vendors/mdi/css/materialdesignicons.min.css') }}">
   <link rel="stylesheet"type="text/css"  href="{{ asset('admin/assets/vendors/css/vendor.bundle.base.css') }}">
-  <link rel="icon" type="image/png"  href="/admin/assets/images/logo/LOOGO.png">
+  <link rel="icon" type="image/png"  href="/admin/assets/images/logo/eee.png">
 
 
   {{-- <link rel="shortcut icon" href="/admin/assets/images/logo/bleu.ico" type="image/x-icon"> --}}
@@ -53,85 +53,54 @@
           <a class="nav-link" href="index.html">
             <i class="mdi mdi-view-quilt menu-icon"></i>
             <span class="menu-title">Dashboard</span>
-            <div class="badge badge-info badge-pill">2</div>
           </a>
         </li>
         <li class="nav-item sidebar-category">
           <p>Components</p>
           <span></span>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-            <i class="mdi mdi-palette menu-icon"></i>
-            <span class="menu-title">UI Elements</span>
-            <i class="menu-arrow"></i>
-          </a>
-          <div class="collapse" id="ui-basic">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="pages/forms/basic_elements.html">
-            <i class="mdi mdi-view-headline menu-icon"></i>
-            <span class="menu-title">Form elements</span>
+          <a class="nav-link" href="/my_admin/opt">
+            <i class="mdi mdi-glasses menu-icon"></i>
+            <span class="menu-title"> Lunette Optique</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="pages/charts/chartjs.html">
-            <i class="mdi mdi-chart-pie menu-icon"></i>
-            <span class="menu-title">Charts</span>
+          <a class="nav-link" href="/my_admin/solaire">
+            <i class="mdi mdi-sunglasses menu-icon"></i>
+            <span class="menu-title">Lunette Solaire </span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="pages/tables/basic-table.html">
-            <i class="mdi mdi-grid-large menu-icon"></i>
-            <span class="menu-title">Tables</span>
+            <i class="mdi mdi-watch menu-icon"></i>
+            <span class="menu-title">Montres</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="pages/icons/mdi.html">
-            <i class="mdi mdi-emoticon menu-icon"></i>
-            <span class="menu-title">Icons</span>
+          <a class="nav-link" href="pages/tables/basic-table.html">
+            <i class="mdi mdi-eye menu-icon"></i>
+            <span class="menu-title">Gestion De Prix</span>
           </a>
         </li>
-        <li class="nav-item sidebar-category">
-          <p>Pages</p>
-          <span></span>
-        </li>
+
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-            <i class="mdi mdi-account menu-icon"></i>
-            <span class="menu-title">User Pages</span>
-            <i class="menu-arrow"></i>
+          <a class="nav-link" href="pages/tables/basic-table.html">
+            <i class="mdi mdi-tag-multiple menu-icon"></i>
+            <span class="menu-title">Gestion de solde</span>
           </a>
-          <div class="collapse" id="auth">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a></li>
-            </ul>
-          </div>
         </li>
-        <li class="nav-item sidebar-category">
-          <p>Apps</p>
-          <span></span>
-        </li>
+
         <li class="nav-item">
-          <a class="nav-link" href="docs/documentation.html">
-            <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-            <span class="menu-title">Documentation</span>
+          <a class="nav-link" href="pages/tables/basic-table.html">
+            <i class="mdi mdi-truck-delivery menu-icon"></i>
+            <span class="menu-title">Commande</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://www.bootstrapdash.com/product/spica-admin/">
-            <button class="btn bg-danger btn-sm menu-title">Upgrade to pro</button>
-          </a>
-        </li>
+
+       
+        
       </ul>
     </div>
     </nav>
@@ -148,8 +117,12 @@
           </div>
           <ul class="navbar-nav navbar-nav-right  text-white">
             <li class="nav-item">
-              <h4 class="mb-0 font-weight-bold d-none d-xl-block  text-white" style="font-family: sans-serif">Mar 12, 2019 - Apr 10, 2019</h4>
-            </li>
+              <i class="mdi mdi-calendar-today" style="font-size: 24px; margin-right:8px"></i>
+
+              <h4 class="mb-0 font-weight-bold d-none d-xl-block text-white" style="font-family: sans-serif" id="dateRange" >      
+                         <i class="mdi mdi-calendar-today"></i>
+
+              </h4>            </li>
             <li class="nav-item dropdown me-1">
               <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-bs-toggle="dropdown">
                 <i class="mdi mdi-calendar mx-0"></i>
@@ -290,6 +263,22 @@
   <script   src="{{ asset('admin/assets/js/jquery.cookie.js') }}"></script>
   <script   src="{{ asset('admin/assets/js/dashboard.js') }}"></script>
 
+  <script>
+    // Get the current date
+    var currentDate = new Date();
+  
+    // Options for formatting the date in French
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  
+    // Format the current date in French
+    var currentDateString = currentDate.toLocaleDateString('fr-FR', options);
+  
+    // Capitalize the first letter of the day and month
+    currentDateString = currentDateString.replace(/^\w/, (c) => c.toUpperCase());
+  
+    // Update the content of the h4 element
+    document.getElementById('dateRange').innerText =  currentDateString;
+  </script>
 
   {{-- <script src="js/dashboard.js"></script> --}}
 

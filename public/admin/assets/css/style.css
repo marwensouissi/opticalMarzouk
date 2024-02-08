@@ -21629,7 +21629,7 @@ dl li {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 65px);
-  background: #912a9d;
+  background: #f5b1b1;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   padding: 0;
@@ -21749,7 +21749,7 @@ dl li {
 }
 
 .sidebar .nav .nav-item.active > .nav-link {
-  background: #e91cfb;
+  background: #d4146799;
   position: relative;
 }
 
@@ -21772,7 +21772,7 @@ dl li {
 }
 
 .sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link {
-  background: #e91cfb;
+  background: #d4146799;
   color: #ffffff;
 }
 
@@ -21846,7 +21846,7 @@ dl li {
   -moz-transition: background 0.25s ease;
   -ms-transition: background 0.25s ease;
   /* background: url(../images/other/navbar-cover.jpg) center center no-repeat; */
-  background-color: #3b3c44;
+  background-color: #e15385;
   background-size: cover;
   height: 65px;
   width: auto;
@@ -22218,7 +22218,7 @@ dl li {
     display: flex;
     -webkit-align-items: center;
     align-items: center;
-    background: #912a9d;
+    background: #f5b1b1;
     padding: 0.5rem 1.4rem;
     left: 70px;
     position: absolute;
@@ -22234,13 +22234,13 @@ dl li {
     display: none;
   }
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .nav-link:hover .menu-title {
-    background: #912a9d;
+    background: #f5b1b1;
   }
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapse,
   .sidebar-icon-only .sidebar .nav .nav-item.hover-open .collapsing {
     display: block;
     padding: .5rem 0;
-    background: #912a9d;
+    background: #f5b1b1;
     border-radius: 0 0 5px 0;
     position: absolute;
     left: 70px;

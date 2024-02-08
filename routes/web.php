@@ -36,3 +36,4 @@ Route::get('lunetteopt/{lunetteopt}/edit', [\App\Http\Controllers\LunetteOptCont
 Route::put('lunetteopt/{lunetteopt}', [\App\Http\Controllers\LunetteOptController::class, 'update'])->name('lunetteopt.update');
 // Delete LunetteOpt
 Route::delete('lunetteopt/{id}', [\App\Http\Controllers\LunetteOptController::class, 'destroy'])->name('lunetteopt.destroy');
+Route::get('lunetteopt/search', [\App\Http\Controllers\LunetteOptController::class, 'search'])->name('lunetteopt.search');
