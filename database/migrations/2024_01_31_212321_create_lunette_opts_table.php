@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('reference');
             $table->string('marque');
+            $table->string('genre');
             $table->decimal('prix');
             $table->string('type_monture');
             $table->string('matiere_monture');

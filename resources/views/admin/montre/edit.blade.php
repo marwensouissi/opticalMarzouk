@@ -1,4 +1,4 @@
-<!-- resources/views/admin/optique/edit.blade.php -->
+<!-- resources/views/admin/montre/edit.blade.php -->
 
 @extends('admin.master')
 
@@ -10,82 +10,52 @@
 
         <!-- Display validation errors here if needed -->
 
-<form action="{{ route('lunetteopt.update', ['lunetteopt' => $lunetteOpt->id]) }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('montre.update', ['montre' => $montre->id]) }}" method="post" enctype="multipart/form-data">
             
             @csrf
             @method('PUT')
             <!-- Input fields for editing data -->
             <div class="mb-3">
                 <label for="reference" class="form-label">Référence:</label>
-                <input type="text" class="form-control" id="reference" name="reference" value="{{ old('reference', $lunetteOpt->reference) }}" required>
+                <input type="text" class="form-control" id="reference" name="reference" value="{{ old('reference', $montre->reference) }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="etat" class="form-label">Etat:</label>
                 <select name="etat" id="etat" class="form-control" required>
-                    <option value="0" {{ old('etat', $lunetteOpt->etat) == '0' ? 'selected' : '' }}>En Stock</option>
-                    <option value="1" {{ old('etat', $lunetteOpt->etat) == '1' ? 'selected' : '' }}>Vendu</option>
+                    <option value="0" {{ old('etat', $montre->etat) == '0' ? 'selected' : '' }}>En Stock</option>
+                    <option value="1" {{ old('etat', $montre->etat) == '1' ? 'selected' : '' }}>Vendu</option>
                 </select>
             </div>
     
             <div class="mb-3">
                 <label for="marque" class="form-label">Marque:</label>
-                <input type="text" class="form-control" id="marque" name="marque" value="{{ old('marque', $lunetteOpt->marque) }}" required>
+                <input type="text" class="form-control" id="marque" name="marque" value="{{ old('marque', $montre->marque) }}" required>
             </div>
             
     
             <div class="mb-3">
                 <label for="prix" class="form-label">Prix:</label>
-                <input type="number" class="form-control" id="prix" name="prix" value="{{ old('prix', $lunetteOpt->prix) }}" required>
+                <input type="number" class="form-control" id="prix" name="prix" value="{{ old('prix', $montre->prix) }}" required>
             </div>
             <div class="mb-3">
                 <label for="genre" class="form-label">Genre:</label>
                 <div>
-                    <input type="radio" id="genre_homme" name="genre" value="Homme" {{ (old('genre', $lunetteOpt->genre) == 'Homme') ? 'checked' : '' }}>
+                    <input type="radio" id="genre_homme" name="genre" value="Homme" {{ (old('genre', $montre->genre) == 'Homme') ? 'checked' : '' }}>
                     <label for="genre_homme">Homme</label>
                 </div>
                 <div>
-                    <input type="radio" id="genre_femme" name="genre" value="Femme" {{ (old('genre', $lunetteOpt->genre) == 'Femme') ? 'checked' : '' }}>
+                    <input type="radio" id="genre_femme" name="genre" value="Femme" {{ (old('genre', $montre->genre) == 'Femme') ? 'checked' : '' }}>
                     <label for="genre_femme">Femme</label>
                 </div>
                 <div>
-                    <input type="radio" id="genre_les_deux" name="genre" value="Les Deux" {{ (old('genre', $lunetteOpt->genre) == 'Les Deux') ? 'checked' : '' }}>
+                    <input type="radio" id="genre_les_deux" name="genre" value="Les Deux" {{ (old('genre', $montre->genre) == 'Les Deux') ? 'checked' : '' }}>
                     <label for="genre_les_deux">Les deux </label>
                 </div>
-                <div>
-                    <input type="radio" id="genre_enfant" name="genre" value="enfant" {{ (old('genre', $lunetteOpt->genre) == 'enfant') ? 'checked' : '' }}>
-                    <label for="genre_enfant">Enfant </label>
-                </div>
+
             </div>
             
-            <div class="mb-3">
-                <label for="aplique" class="form-label">Aplique:</label>
-                <div>
-                    <input type="radio" id="avec_aplique" name="apl" value="1" {{ old('apl', $lunetteOpt->apl) == '1' ? 'checked' : '' }}>
-                    <label for="avec_aplique">Avec Aplique</label>
-                </div>
-                <div>
-                    <input type="radio" id="sans_aplique" name="apl" value="0" {{ old('apl', $lunetteOpt->apl) == '0' ? 'checked' : '' }}>
-                    <label for="sans_aplique">Sans Aplique</label>
-                </div>
-            </div>
             
-    
-            <div class="mb-3">
-                <label for="type_monture" class="form-label">Type Monture:</label>
-                <input type="text" class="form-control" id="type_monture" name="type_monture" value="{{ old('type_monture', $lunetteOpt->type_monture) }}" required>
-            </div>
-    
-            <div class="mb-3">
-                <label for="matiere_monture" class="form-label">Matière Monture:</label>
-                <input type="text" class="form-control" id="matiere_monture" name="matiere_monture" value="{{ old('matiere_monture', $lunetteOpt->matiere_monture) }}" required>
-            </div>
-    
-            <div class="mb-3">
-                <label for="couleur" class="form-label">Couleur:</label>
-                <input type="text" class="form-control" id="couleur" name="couleur" value="{{ old('couleur', $lunetteOpt->couleur) }}" required>
-            </div>
-    
 
             <div class="mb-3">
                 <label for="cover" class="form-label">Cover Image:</label>
@@ -93,8 +63,8 @@
 
                 <!-- Cover image preview area -->
                 <div id="cover-preview" class="mt-2">
-                    @if($lunetteOpt->cover)
-                        <img src="{{ asset('produit/optique/' . $lunetteOpt->cover) }}" alt="Cover Image" style="width: 150px; margin-right: 2px; margin-bottom: 2px;">
+                    @if($montre->cover)
+                        <img src="{{ asset('produit/montre/' . $montre->cover) }}" alt="Cover Image" style="width: 150px; margin-right: 2px; margin-bottom: 2px;">
                     @else
                         No Cover Image
                     @endif
@@ -108,13 +78,13 @@
 
                 <!-- Image preview area -->
                 <div id="image-preview" class="mt-2">
-                    @foreach(explode(',', $lunetteOpt->image) as $image)
-                        <img src="{{ asset('produit/optique/' . $image) }}" alt="Image" style="width: 150px; margin-right: 2px; margin-bottom: 2px;">
+                    @foreach(explode(',', $montre->image) as $image)
+                        <img src="{{ asset('produit/montre/' . $image) }}" alt="Image" style="width: 150px; margin-right: 2px; margin-bottom: 2px;">
                     @endforeach
                 </div>
             </div>
     
-            <button type="submit" class="btn btn-success text-white" style="float: right">Modifier LunetteOpt</button>
+            <button type="submit" class="btn btn-success text-white" style="float: right">Modifier Montre</button>
         </form>
     </div>
     

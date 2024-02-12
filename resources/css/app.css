@@ -5,3 +5,72 @@
 [x-cloak] {
     display: none;
 }
+
+.table td {
+    vertical-align: middle;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: normal;
+    word-wrap: break-word;
+    padding: 10px; /* Set a fixed padding for consistent spacing */
+}
+.btn-outline-primary {
+  color: #e15385;
+  border-color: #e15385;
+}
+
+.table img {
+  border-radius: 15px;
+}
+
+/* Bootstrap responsiveness classes */
+@media (max-width: 575.98px) {
+  .table img {
+      max-width: 100px;
+      height: auto;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .table img {
+      max-width: 100px;
+      height: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .table img {
+      max-width: 160px;
+      height: 160px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .table img {
+      max-width: 160px;
+      height: 160px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .table img {
+      max-width: 160px;
+      height: 160px;
+  }
+}
+
+
+.btn-action {
+    margin-right: 5px;
+}
+
+/* Set the max-width for the table */
+.table-responsive {
+    max-width: 95%;
+    overflow-x: auto;
+}
+.search-input {
+    max-width: 350px;
+    margin-bottom: 10px;
+}
+

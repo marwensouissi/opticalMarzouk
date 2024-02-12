@@ -13,10 +13,18 @@ return new class extends Migration
     {
         Schema::create('montres', function (Blueprint $table) {
             $table->id();
+            $table->string('reference');
+            $table->string('marque');
+            $table->string('genre');
+            $table->decimal('prix');
+            $table->string('image');
+            $table->string('cover');
+            $table->integer('etat');
+
+            // Add any other columns you need
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */

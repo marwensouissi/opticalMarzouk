@@ -11,7 +11,7 @@
         </div>
     @endif
 
-    <form action="{{ route('lunetteopt.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('montre.store') }}" method="post" enctype="multipart/form-data">
         @csrf
 
         <!-- Other form fields (customize according to your requirements) -->
@@ -39,24 +39,10 @@
                 <input type="radio" id="les_deux" name="genre" value="Les Deux" {{ old('genre') == 'Les Deux' ? 'checked' : '' }}>
                 <label for="les_deux">Les deux</label>
             </div>
-            <div>
-                <input type="radio" id="enfant" name="genre" value="enfant" {{ old('genre') == 'enfant' ? 'checked' : '' }}>
-                <label for="enfant">Enfant</label>
-            </div>
+
         </div>
         
         
-        <div class="mb-3">
-            <label for="aplique" class="form-label">Aplique:</label>
-            <div>
-                <input type="radio" id="avec_aplique" name="apl" value="1" {{ old('apl') == '1' ? 'checked' : '' }}>
-                <label for="avec_aplique">Avec Aplique</label>
-            </div>
-            <div>
-                <input type="radio" id="sans_aplique" name="apl" value="0" {{ old('apl', '0') == '0' ? 'checked' : '' }}>
-                <label for="sans_aplique">Sans Aplique</label>
-            </div>
-        </div>
         
 
         <div class="mb-3">
@@ -64,20 +50,6 @@
             <input type="number" class="form-control" id="prix" name="prix" required>
         </div>
 
-        <div class="mb-3">
-            <label for="type_monture" class="form-label">Type Monture:</label>
-            <input type="text" class="form-control" id="type_monture" name="type_monture" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="matiere_monture" class="form-label">Matière Monture:</label>
-            <input type="text" class="form-control" id="matiere_monture" name="matiere_monture" required>
-        </div>
-
-        <div class="mb-3">
-            <label for="couleur" class="form-label">Couleur:</label>
-            <input type="text" class="form-control" id="couleur" name="couleur" required>
-        </div>
 
 
         <div class="mb-3">
@@ -96,7 +68,7 @@
             <div id="image-preview" class="mt-2"></div>
         </div>
     
-        <button type="submit" class="btn btn-success text-white" style="float: right">Ajouter LunetteOpt</button>
+        <button type="submit" class="btn btn-success text-white" style="float: right">Ajouter Montre</button>
     
         <script>
             // JavaScript to handle image preview for cover

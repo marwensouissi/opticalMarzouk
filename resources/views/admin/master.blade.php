@@ -61,7 +61,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/my_admin/opt">
+          <a class="nav-link" href="/my_admin/optique">
             <i class="mdi mdi-glasses menu-icon"></i>
             <span class="menu-title"> Lunette Optique</span>
           </a>
@@ -73,7 +73,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="pages/tables/basic-table.html">
+          <a class="nav-link" href="/my_admin/montre">
             <i class="mdi mdi-watch menu-icon"></i>
             <span class="menu-title">Montres</span>
           </a>

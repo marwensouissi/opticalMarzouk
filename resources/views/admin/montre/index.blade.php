@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content')
-@section('title', 'Optique')
+@section('title', 'montre')
 
 <style>
   .table td {
@@ -77,10 +77,10 @@
 <div style="margin-left: -50px;    margin-top: -2px;">
 
     <div class="d-flex  align-items-center mx-5 mt-4">
-        <h4 class="mr-2 p-2" style="font-family: sans-serif">Liste Des Lunettes</h4>
+        <h4 class="mr-2 p-2" style="font-family: sans-serif">Liste Des Montre</h4>
 
         <!-- Add the search form here -->
-        <form action="{{ route('lunetteopt.search') }}" method="GET" class="search-input ">
+        <form action="{{ route('montre.search') }}" method="GET" class="search-input ">
             <div class="input-group p-2">
                 <input type="text" class="form-control" placeholder="Reference / Marque" name="search">
                 <button class="btn btn-outline-primary " type="submit"> <i class="mdi mdi-magnify "></i> Search</button>
@@ -88,7 +88,7 @@
         </form>
 
         <p class="card-description ml-auto p-2">
-            <a href="{{ route('lunetteopt.create') }}" class="btn btn-success text-white" style="background-color: #ff7d7d ; border-color:transparent"> <i  class="mdi mdi-library-plus "></i>  Ajouter Lunette </a>
+            <a href="{{ route('montre.create') }}" class="btn btn-success text-white" style="background-color: #ff7d7d ; border-color:transparent"> <i  class="mdi mdi-library-plus "></i>  Ajouter Montre </a>
         </p>
 
 
@@ -107,45 +107,29 @@
                 <th>Marque</th>
                 <th>Genre</th>
                 <th>Prix</th>
-                <th>Type </th>
-                <th>Matiere </th>
-                <th>Couleur</th>
-                <th>Aplique</th>
                 <th>Etat</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($lunettesOptiques as $lunetteOpt)
+            @foreach($Montre as $montre)
                 <tr class="{{ $loop->iteration % 2 == 0 ? 'even-row' : 'odd-row' }}">
                     <td>
-                        @if($lunetteOpt->cover)
-                            <?php $coverImage = explode(',', $lunetteOpt->cover); ?>
-                            <img src="{{ asset('produit/optique/' . $coverImage[0]) }}" alt="Cover Image" class="img-fluid rounded">
+                        @if($montre->cover)
+                            <?php $coverImage = explode(',', $montre->cover); ?>
+                            <img src="{{ asset('produit/montre/' . $coverImage[0]) }}" alt="Cover Image" class="img-fluid rounded">
                             @else
                             No Cover Image
                         @endif
                     </td>
-                    <td>{{ $lunetteOpt->reference }}</td>
-                    <td>{{ $lunetteOpt->marque }}</td>
-                    <td>{{ $lunetteOpt->genre }}</td>
-                    <td>{{ $lunetteOpt->prix }}</td>
-                    <td>{{ $lunetteOpt->type_monture }}</td>
-                    <td>{{ $lunetteOpt->matiere_monture }}</td>
-                    <td>{{ $lunetteOpt->couleur }}</td>
+                    <td>{{ $montre->reference }}</td>
+                    <td>{{ $montre->marque }}</td>
+                    <td>{{ $montre->genre }}</td>
+                    <td>{{ $montre->prix }}</td>
                     <td>
-                        @if($lunetteOpt->apl === 0)
-                            Sans Aplique
-                        @elseif($lunetteOpt->apl === 1)
-                            Avec Aplique
-                        @else
-                            <!-- Handle other cases if needed -->
-                        @endif
-                    </td>
-                    <td>
-                        @if($lunetteOpt->etat === 0)
+                        @if($montre->etat === 0)
                             En stock
-                        @elseif($lunetteOpt->etat === 1)
+                        @elseif($montre->etat === 1)
                             Vendu
                         @else
                             <!-- Handle other cases if needed -->
@@ -153,10 +137,10 @@
                     </td>
                     <td>
                         <!-- Update button -->
-                        <a href="{{ route('lunetteopt.edit', $lunetteOpt->id) }}" class="btn btn-warning btn-action text-white" style="background-color: #ff7d7d; border-color:transparent;"><i class="mdi mdi-wrench"></i></a>
+                        <a href="{{ route('montre.edit', $montre->id) }}" class="btn btn-warning btn-action text-white" style="background-color: #ff7d7d; border-color:transparent;"><i class="mdi mdi-wrench"></i></a>
 
                         <!-- Delete button (You may want to add a confirmation dialog for deletion) -->
-                        <form action="{{ route('lunetteopt.destroy', $lunetteOpt->id) }}" method="post" style="display: inline;" onsubmit="return confirm('Vous êtes Sure de Supprimer?');">
+                        <form action="{{ route('montre.destroy', $montre->id) }}" method="post" style="display: inline;" onsubmit="return confirm('Vous êtes Sure de Supprimer?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-action text-white "><i class="mdi mdi-delete-forever"></i></button>
@@ -171,29 +155,29 @@
     <nav aria-label="..." class="d-flex justify-content-center">
         <ul class="pagination" style="background-color: #e15385; border: 1px solid #e15385; color: black;">
             <!-- Previous Page -->
-            <li class="page-item {{ $lunettesOptiques->currentPage() == 1 ? 'disabled' : '' }}">
-                <a class="page-link" href="{{ $lunettesOptiques->previousPageUrl() }}" aria-label="Previous">
+            <li class="page-item {{ $Montre->currentPage() == 1 ? 'disabled' : '' }}">
+                <a class="page-link" href="{{ $Montre->previousPageUrl() }}" aria-label="Previous">
                     <span aria-hidden="true" style="color:#6B6F82">Previous</span>
                 </a>
             </li>
 
             <!-- Page Links -->
-            @for ($i = 1; $i <= $lunettesOptiques->lastPage(); $i++)
-                <li class="page-item {{ $i == $lunettesOptiques->currentPage() ? 'active' : '' }}">
-                    @if ($i == $lunettesOptiques->currentPage())
+            @for ($i = 1; $i <= $Montre->lastPage(); $i++)
+                <li class="page-item {{ $i == $Montre->currentPage() ? 'active' : '' }}">
+                    @if ($i == $Montre->currentPage())
                         <span class="page-link" style="background-color: #e15385; color: white; border: 1px solid #e15385;">
                             {{ $i }}
                             <span class="sr-only">(current)</span>
                         </span>
                     @else
-                        <a class="page-link" style="color:#6B6F82" href="{{ $lunettesOptiques->url($i) }}">{{ $i }}</a>
+                        <a class="page-link" style="color:#6B6F82" href="{{ $Montre->url($i) }}">{{ $i }}</a>
                     @endif
                 </li>
             @endfor
 
             <!-- Next Page -->
             <li class="page-item">
-                <a class="page-link" href="{{ $lunettesOptiques->nextPageUrl() }}" aria-label="Next">
+                <a class="page-link" href="{{ $Montre->nextPageUrl() }}" aria-label="Next">
                     <span aria-hidden="true"style="color:#6B6F82" >Next</span>
                 </a>
             </li>

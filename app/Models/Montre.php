@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Montre extends Model
 {
-    use HasFactory;
+    protected $fillable = ['reference','genre', 'marque', 'prix', 'etat', 'cover','image'];
 }

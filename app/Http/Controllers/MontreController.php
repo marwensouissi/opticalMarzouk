@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\LunetteOpt;
+use App\Models\Montre;
 
 
 
 
 use Illuminate\Http\Request;
 
-class LunetteOptController extends Controller
+class MontreController extends Controller
 {
 
     public function index(Request $request)
@@ -18,22 +18,22 @@ class LunetteOptController extends Controller
             $searchQuery = $request->input('search');
     
             // Perform the search using the 'reference' or 'marque' fields
-            $lunettesOptiques = LunetteOpt::where('reference', 'LIKE', "%$searchQuery%")
+            $Montre = Montre::where('reference', 'LIKE', "%$searchQuery%")
                 ->orWhere('marque', 'LIKE', "%$searchQuery%")
-                ->paginate(10); // Paginate the search results with 10 items per page
+                ->paginate(12); // Paginate the search results with 10 items per page
         } else {
             // Fetch all Lunettes Optiques from the database with pagination
-            $lunettesOptiques = LunetteOpt::paginate(10); // Paginate all results with 10 items per page
+            $Montre = Montre::paginate(12); // Paginate all results with 12 items per page
         }
     
         // Check if the current page is greater than the last page
-        if ($lunettesOptiques->currentPage() > $lunettesOptiques->lastPage()) {
+        if ($Montre->currentPage() > $Montre->lastPage()) {
             // Redirect to the last page
-            return redirect($lunettesOptiques->url($lunettesOptiques->lastPage()));
+            return redirect($Montre->url($Montre->lastPage()));
         }
     
         // Pass the Lunettes Optiques data to the view
-        return view('admin.optique.index', compact('lunettesOptiques'));
+        return view('admin.montre.index', compact('Montre'));
     }
     
     
@@ -42,7 +42,7 @@ class LunetteOptController extends Controller
 
     public function create()
     {
-        return view('admin.optique.create');
+        return view('admin.montre.create');
     }
 
     public function store(Request $request)
@@ -55,18 +55,14 @@ class LunetteOptController extends Controller
             'image.*' => 'required', // Adjust validation rules for images
             'cover' =>  'required', // Validation rule for the cover image
             'prix' => 'required',
-            'type_monture' => 'required',
-            'matiere_monture' => 'required',
-            'couleur' => 'required',
-            'apl' => 'required|in:0,1', // Ensure 'apl' is either 0 or 1
             'genre' => 'required',
 
         ]);
 
     
-        // Create a new LunetteOpt instance and save it to the database
+        // Create a new Montre instance and save it to the database
         $validatedData['etat'] = 0;
-        $lunetteOpt = new LunetteOpt($validatedData);
+        $montre = new Montre($validatedData);
     
         // Handle cover image
         if ($request->hasFile('cover')) {
@@ -75,10 +71,10 @@ class LunetteOptController extends Controller
             $coverFilename = 'cover_' . time() . '.' . $coverExtension;
     
             // Move the cover image to the desired location
-            $request->file('cover')->move('produit/optique', $coverFilename);
+            $request->file('cover')->move('produit/montre', $coverFilename);
     
-            // Save the cover image name to the LunetteOpt model
-            $lunetteOpt->cover = $coverFilename;
+            // Save the cover image name to the Montre model
+            $montre->cover = $coverFilename;
         }
     
         // Handle other images
@@ -91,26 +87,26 @@ class LunetteOptController extends Controller
                 $filename = time() . '_' . $index . '.' . $extension;
     
                 // Move the image to the desired location
-                $image->move('produit/optique', $filename);
+                $image->move('produit/montre', $filename);
     
                 // Store the image name in the array
                 $imageNames[] = $filename;
             }
         }
     
-        // Save the array of image names to the LunetteOpt model
-        $lunetteOpt->image = implode(',', $imageNames);
+        // Save the array of image names to the Montre model
+        $montre->image = implode(',', $imageNames);
     
-        // Save the LunetteOpt model
-        $lunetteOpt->save();
+        // Save the Montre model
+        $montre->save();
     
-        // Redirect back or to a different route after storing the LunetteOpt
-        return redirect()->route('lunetteopt.create')->with('success', 'LunetteOpt added successfully!');
+        // Redirect back or to a different route after storing the Montre
+        return redirect()->route('montre.create')->with('success', 'Montre added successfully!');
     }
     public function edit($id)
 {
-    $lunetteOpt = LunetteOpt::findOrFail($id);
-    return view('admin.optique.edit', compact('lunetteOpt'));
+    $montre = Montre::findOrFail($id);
+    return view('admin.montre.edit', compact('montre'));
 }
 public function update(Request $request, $id)
 {
@@ -120,35 +116,29 @@ public function update(Request $request, $id)
         'reference' => 'required',
         'marque' => 'required',
         'prix' => 'required',
-        'type_monture' => 'required',
-        'matiere_monture' => 'required',
-        'couleur' => 'required',
         'etat' => 'required',
-        'apl' => 'required',
         'genre' => 'required',
-
-
 
     ]);
 
 
-    // Find the LunetteOpt instance by ID
-    $lunetteOpt = LunetteOpt::findOrFail($id);
+    // Find the Montre instance by ID
+    $montre = Montre::findOrFail($id);
 
     // Handle cover image
     if ($request->hasFile('cover')) {
         // Delete the old cover image if it exists
-        $this->deleteImage($lunetteOpt->cover);
+        $this->deleteImage($montre->cover);
 
         // Generate a unique filename for the new cover image
         $coverExtension = $request->file('cover')->getClientOriginalExtension();
         $coverFilename = 'cover_' . time() . '.' . $coverExtension;
 
         // Move the new cover image to the desired location
-        $request->file('cover')->move('produit/optique', $coverFilename);
+        $request->file('cover')->move('produit/montre', $coverFilename);
 
-        // Save the new cover image name to the LunetteOpt model
-        $lunetteOpt->cover = $coverFilename;
+        // Save the new cover image name to the Montre model
+        $montre->cover = $coverFilename;
     }
 
     // Handle other images
@@ -156,7 +146,7 @@ public function update(Request $request, $id)
 
     if ($request->hasFile('image')) {
         // Delete the old images if they exist
-        foreach (explode(',', $lunetteOpt->image) as $image) {
+        foreach (explode(',', $montre->image) as $image) {
             $this->deleteImage($image);
         }
 
@@ -166,26 +156,26 @@ public function update(Request $request, $id)
             $filename = time() . '_' . $index . '.' . $extension;
 
             // Move the new image to the desired location
-            $image->move('produit/optique', $filename);
+            $image->move('produit/montre', $filename);
 
             // Store the new image name in the array
             $newImageNames[] = $filename;
         }
 
-        // Save the array of new image names to the LunetteOpt model
-        $lunetteOpt->image = implode(',', $newImageNames);
+        // Save the array of new image names to the Montre model
+        $montre->image = implode(',', $newImageNames);
     }
 
-    // Update the LunetteOpt instance with the validated data
-    $lunetteOpt->update($validatedData);
+    // Update the Montre instance with the validated data
+    $montre->update($validatedData);
 
     // Redirect to the index or show page with a success message
-    return redirect()->route('lunetteopt.index')->with('success', 'LunetteOpt updated successfully!');
+    return redirect()->route('montre.index')->with('success', 'Montre updated successfully!');
 }
 
     private function deleteImage($imageName)
     {
-        $imagePath = public_path('produit/optique/' . $imageName);
+        $imagePath = public_path('produit/montre/' . $imageName);
 
         if (\File::exists($imagePath)) {
             \File::delete($imagePath);
@@ -196,22 +186,22 @@ public function update(Request $request, $id)
 
     public function destroy($id)
     {
-        $lunetteOpt = LunetteOpt::findOrFail($id);
+        $montre = Montre::findOrFail($id);
 
         // Delete cover image
-        $coverImage = $lunetteOpt->cover;
+        $coverImage = $montre->cover;
         $this->deleteImage($coverImage);
 
         // Delete other associated images
-        $images = explode(',', $lunetteOpt->image);
+        $images = explode(',', $montre->image);
         foreach ($images as $image) {
             $this->deleteImage($image);
         }
 
-        // Delete the LunetteOpt instance
-        $lunetteOpt->delete();
+        // Delete the Montre instance
+        $montre->delete();
 
-        return redirect()->route('lunetteopt.index')->with('success', 'LunetteOpt updated successfully!');
+        return redirect()->route('montre.index')->with('success', 'Montre updated successfully!');
     }
 
     public function search(Request $request)
@@ -227,16 +217,16 @@ public function update(Request $request, $id)
         // Check if the search query is empty or null
         if (empty($searchQuery)) {
             // Fetch all Lunettes Optiques from the database
-            $lunettesOptiques = LunetteOpt::all();
+            $montre = Montre::all();
         } else {
             // Perform the search using the 'reference' or 'marque' fields
-            $lunettesOptiques = LunetteOpt::where('reference', 'LIKE', "%$searchQuery%")
+            $montre = Montre::where('reference', 'LIKE', "%$searchQuery%")
                 ->orWhere('marque', 'LIKE', "%$searchQuery%")
                 ->get();
         }
     
         // Pass the results to the view
-        return view('admin.optique.index', compact('lunettesOptiques'));
+        return view('admin.montre.index', compact('montre'));
     }
     
 
