@@ -22,14 +22,16 @@ return new class extends Migration
                 $table->string('matiere_monture');
                 $table->string('couleur');
                 $table->integer('etat');
-                $table->string('cover')->nullable();
+                $table->string('cover');
                 $table->string('couleur_verre');
                 $table->integer('verre_polarise');
                 $table->integer('verre_degrade');
                 $table->integer('verre_miroirs');
-                $table->text('image')->nullable();
+                $table->text('image');
                 $table->integer('adaptable');
                 $table->timestamps();
+                $table->integer('solde')->nullable();
+
             });
         
     }

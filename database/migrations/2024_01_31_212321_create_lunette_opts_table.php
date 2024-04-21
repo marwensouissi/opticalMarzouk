@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('cover');
             $table->integer('etat');
             $table->integer('apl');
+            $table->integer('solde')->nullable();
+
 
             // Add any other columns you need
             $table->timestamps();

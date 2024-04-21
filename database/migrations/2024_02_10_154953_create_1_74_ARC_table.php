@@ -9,17 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('1_56', function (Blueprint $table) {
+        Schema::create('1_74_arc', function (Blueprint $table) {
             $table->id();
             $table->string('sphere');
             $table->integer('cylindre0');
-            $table->integer('cylindre-0_25_to-2_00');
-            $table->integer('cylindre-2_25_to-3_00');
-            $table->integer('cylindre-3_25_to-4_00');
-            $table->integer('cylindre-4_25_to-6_00')->nullable();
-            $table->timestamps();
+            $table->integer('cylindre-0_25_to-2_00')->nullable();
         });
     }
 
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('1_56');
+        Schema::dropIfExists('1_74');
     }
 };

@@ -214,18 +214,21 @@ public function update(Request $request, $id)
         // Get the search query from the form
         $searchQuery = $request->input('search');
     
+        // Number of items per page (can be configurable)
+        $itemsPerPage = 10;
+    
         // Check if the search query is empty or null
         if (empty($searchQuery)) {
-            // Fetch all Lunettes Optiques from the database
-            $montre = Montre::all();
+            // Fetch all Montres from the database with pagination
+            $montre = Montre::paginate($itemsPerPage);
         } else {
-            // Perform the search using the 'reference' or 'marque' fields
-            $montre = Montre::where('reference', 'LIKE', "%$searchQuery%")
-                ->orWhere('marque', 'LIKE', "%$searchQuery%")
-                ->get();
+            // Perform the search using the 'reference' or 'marque' fields with pagination
+            $montre = Montre::where('reference', 'LIKE', '%' . $searchQuery . '%')
+                ->orWhere('marque', 'LIKE', '%' . $searchQuery . '%')
+                ->paginate($itemsPerPage);
         }
     
-        // Pass the results to the view
+        // Pass the paginated results to the view
         return view('admin.montre.index', compact('montre'));
     }
     

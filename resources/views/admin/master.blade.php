@@ -12,6 +12,8 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/vendors/mdi/css/materialdesignicons.min.css') }}">
   <link rel="stylesheet"type="text/css"  href="{{ asset('admin/assets/vendors/css/vendor.bundle.base.css') }}">
   <link rel="icon" type="image/png"  href="/admin/assets/images/logo/eee.png">
+  <!-- Add this in the head section of your HTML -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 
   {{-- <link rel="shortcut icon" href="/admin/assets/images/logo/bleu.ico" type="image/x-icon"> --}}
@@ -79,14 +81,14 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="pages/tables/basic-table.html">
+          <a class="nav-link" href="/my_admin/prix">
             <i class="mdi mdi-eye menu-icon"></i>
             <span class="menu-title">Gestion De Prix</span>
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="pages/tables/basic-table.html">
+          <a class="nav-link" href="/my_admin/solde">
             <i class="mdi mdi-tag-multiple menu-icon"></i>
             <span class="menu-title">Gestion de solde</span>
           </a>

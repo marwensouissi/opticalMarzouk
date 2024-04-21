@@ -77,7 +77,7 @@
 <div style="margin-left: -50px; margin-top: -2px;">
 
     <div class="d-flex  align-items-center mx-5 mt-4">
-        <h4 class="mr-2 p-2" style="font-family: sans-serif">Liste Des Lunettes</h4>
+        <h4 class="mr-2 p-2" style="font-family: sans-serif">Liste Des Lunettes Solaire</h4>
 
         <!-- Add the search form here -->
         <form action="{{ route('lunettesol.search') }}" method="GET" class="search-input ">
@@ -88,7 +88,7 @@
         </form>
 
         <p class="card-description ml-auto p-2">
-            <a href="{{ route('lunettesol.create') }}" class="btn btn-success text-white" style="background-color: #ff7d7d ; border-color:transparent"> <i  class="mdi mdi-library-plus "></i>  Ajouter Lunette </a>
+            <a href="{{ route('lunettesol.create') }}" class="btn btn-success text-white" style="background-color: #ff7d7d ; border-color:transparent"> <i  class="mdi mdi-library-plus "></i>  Ajouter Lunette Solaire </a>
         </p>
     </div>
 </div>

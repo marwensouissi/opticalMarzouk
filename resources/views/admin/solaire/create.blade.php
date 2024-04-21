@@ -1,4 +1,4 @@
-<!-- resources/views/admin/optique/create.blade.php -->
+<!-- resources/views/admin/Solaire/create.blade.php -->
 
 @extends('admin.master')
 
@@ -6,7 +6,7 @@
 @section('title', 'Solaire')
 
 <div class="container">
-    <h2>Ajouter Lunette Optique</h2>
+    <h2>Ajouter Lunette Solaire</h2>
 
     <!-- Display validation errors here if needed -->
 

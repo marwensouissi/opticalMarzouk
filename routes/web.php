@@ -60,3 +60,19 @@ Route::get('/montre/search', [\App\Http\Controllers\MontreController::class, 'se
 Route::get('/my_admin/prix', [\App\Http\Controllers\PrixController::class, 'index']);
 Route::post('/updateTable/{tableName}', [\App\Http\Controllers\PrixController::class, 'updateTable'])->name('updateTable');
 
+// Define routes for SoldeController
+Route::get('/my_admin/solde', [\App\Http\Controllers\SoldeController::class, 'index'])->name('solde.index');
+
+        //opt
+Route::get('/my_admin/optique/solde', [\App\Http\Controllers\SoldeController::class, 'optique'])->name('solde.optique');
+Route::post('/my_admin/optique/update-solde', [\App\Http\Controllers\SoldeController::class, 'updateSolde'])->name('updateSolde');
+Route::get('/my_admin/optique/search', [\App\Http\Controllers\SoldeController::class, 'searchOpt'])->name('Optsearch');
+        //sol
+Route::get('/my_admin/solaire/solde', [\App\Http\Controllers\SoldeController::class, 'solaire'])->name('solde.solaire');
+Route::post('/my_admin/solaire/update-solde', [\App\Http\Controllers\SoldeController::class, 'updateSoldeSolaire'])->name('updateSoldeSolaire');
+Route::get('/my_admin/solaire/search', [\App\Http\Controllers\SoldeController::class, 'searchSolaire'])->name('Solairesearch');
+        //montre
+Route::get('/my_admin/montre/solde', [\App\Http\Controllers\SoldeController::class, 'montre'])->name('solde.montre');
+Route::post('/my_admin/montre/update-solde', [\App\Http\Controllers\SoldeController::class, 'updateSoldeMontre'])->name('updateSoldeMontre');
+Route::get('/my_admin/montre/search', [\App\Http\Controllers\SoldeController::class, 'searchMontre'])->name('Montresearch');
+

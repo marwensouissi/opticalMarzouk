@@ -156,7 +156,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-success text-white" style="float: right">Modifier lunetteSol</button>
+        <button type="submit" class="btn btn-success text-white" style="float: right">Modifier lunette Solaire</button>
     </form>
 </div>
 

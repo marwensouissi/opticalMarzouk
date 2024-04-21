@@ -6,7 +6,7 @@
 @section('title', 'Optique')
 
     <div class="container">
-        <h2>Edit Lunette Optiqiue</h2>
+        <h2>Edit  Montre</h2>
 
         <!-- Display validation errors here if needed -->
 

@@ -11,10 +11,10 @@ class PrixController extends Controller
     {
      
             // Fetch data from the database for each table
-            $tables['1_6']['data'] = DB::table('1_6')->get();
-            $tables['1_56']['data'] = DB::table('1_56')->get();
-            $tables['1_67']['data'] = DB::table('1_67')->get();
-            $tables['1_74']['data'] = DB::table('1_74')->get();
+            $tables['1_6']['data'] = DB::table('1_6_arc')->get();
+            $tables['1_56']['data'] = DB::table('1_56_arc')->get();
+            $tables['1_67']['data'] = DB::table('1_67_arc')->get();
+            $tables['1_74']['data'] = DB::table('1_74_arc')->get();
     
             // Pass the data to the blade view
             return view('admin.prix.index', compact('tables'));

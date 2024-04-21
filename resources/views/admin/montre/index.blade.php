@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content')
-@section('title', 'montre')
+@section('title', 'Montre')
 
 <style>
   .table td {
@@ -77,7 +77,7 @@
 <div style="margin-left: -50px;    margin-top: -2px;">
 
     <div class="d-flex  align-items-center mx-5 mt-4">
-        <h4 class="mr-2 p-2" style="font-family: sans-serif">Liste Des Montre</h4>
+        <h4 class="mr-2 p-2" style="font-family: sans-serif">Liste Des Montres</h4>
 
         <!-- Add the search form here -->
         <form action="{{ route('montre.search') }}" method="GET" class="search-input ">

@@ -13,19 +13,19 @@ class LunetteSolController extends Controller
         // Check if there is a search query
         if ($request->has('search')) {
             $searchQuery = $request->input('search');
-    
-            // Perform the search using the new variables
+            // Perform the search and paginate the results
             $lunettesSolaires = LunetteSol::where('reference', 'LIKE', "%$searchQuery%")
                 ->orWhere('marque', 'LIKE', "%$searchQuery%")
-                ->paginate(12); // Use paginate method with 12 items per page
+                ->paginate(12); // Use the paginate method with 12 items per page
         } else {
             // Fetch all Lunettes Solaires from the database with pagination
-            $lunettesSolaires = LunetteSol::paginate(12); // Use paginate method with 12 items per page
+            $lunettesSolaires = LunetteSol::paginate(12); // Use the paginate method with 12 items per page
         }
     
         // Pass the Lunettes Solaires data to the view
         return view('admin.solaire.index', compact('lunettesSolaires'));
     }
+    
     
 
     public function create()
@@ -216,20 +216,24 @@ public function search(Request $request)
     // Get the search query from the form
     $searchQuery = $request->input('search');
 
+    // Number of items per page (can be configurable)
+    $itemsPerPage = 10;
+
     // Check if the search query is empty or null
     if (empty($searchQuery)) {
-        // Fetch all Lunettes Solaires from the database
-        $lunettesSolaires = LunetteSol::all();
+        // Fetch all Lunettes Solaires from the database with pagination
+        $lunettesSolaires = LunetteSol::paginate($itemsPerPage);
     } else {
-        // Perform the search using the 'reference' or 'marque' fields
-        $lunettesSolaires = LunetteSol::where('reference', 'LIKE', "%$searchQuery%")
-            ->orWhere('marque', 'LIKE', "%$searchQuery%")
-            ->get();
+        // Perform the search using the 'reference' or 'marque' fields with pagination
+        $lunettesSolaires = LunetteSol::where('reference', 'LIKE', '%' . $searchQuery . '%')
+            ->orWhere('marque', 'LIKE', '%' . $searchQuery . '%')
+            ->paginate($itemsPerPage);
     }
 
-    // Pass the results to the view
+    // Pass the paginated results to the view
     return view('admin.solaire.index', compact('lunettesSolaires'));
 }
+
 
 
 

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('1_6', function (Blueprint $table) {
+        Schema::create('1_6_arc', function (Blueprint $table) {
             $table->id();
             $table->string('sphere');
             $table->integer('cylindre0');
