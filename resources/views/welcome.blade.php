@@ -31,7 +31,23 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
+	<style>
+	.containers {
+		display: flex;
+		justify-content: center;
+		
+	}
 
+	.list-box {
+		width: 33.33%;
+	}
+
+	@media (max-width: 767px) {
+		.list-box {
+			width: 100%;
+		}
+	}
+</style>
 </head>
 <body>
 	
@@ -168,48 +184,39 @@
 	<!-- end hero area -->
 
 	<!-- features list section -->
-	<div class="list-section pt-80 pb-80">
-		<div class="container">
-
-			<div class="row">
-				<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-					<div class="list-box d-flex align-items-center">
-						<div class="list-icon">
-							<i class="fas fa-shipping-fast"></i>
-						</div>
-						<div class="content">
-							<h3 class="ml-2">Livraison à Domicile</h3>
-							<p></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-					<div class="list-box d-flex align-items-center">
-						<div class="list-icon">
-							<i class="fas fa-phone-volume"></i>
-						</div>
-						<div class="content">
-							<h3  class="ml-2" >24/7 Disponible</h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="list-box d-flex justify-content-start align-items-center">
-						<div class="list-icon">
-							<i class="fas fa-handshake"></i>						</div>
-						<div class="content">
-							<h3  class="ml-2" > Confidentialité  </h3>
-						</div>
-					</div>
+	{{-- <div class="list-section pt-80 pb-80">
+		<div class="container containers ml-32" style="margin-right:4% ">
+			<div class="list-box d-inline">
+				<div class="list-icon col-lg-4">
+					<div class="mr-2"> <i class="fas fa-shipping-fast"></i> </div>
+					<span class="content d-inline ">
+						<h3 class="h3-con"><span class="alone">Livraison</span> à Domicile</h3>
+ 					</span>
 				</div>
 			</div>
 
-		</div>
-	</div>
+
+			<div class="list-box col-lg-4">
+				<div class="list-icon">
+					<i class="fas fa-phone-volume"></i>
+				</div>
+				<div class="content">
+					<h3 class="ml-2">24/7 Disponible</h3>
+				</div>
+			</div>
+			<div class="list-box">
+				<div class="list-icon">
+					<i class="fas fa-handshake"></i>
+				</div>
+				<div class="content col-lg-4">
+					<h3 class="ml-2">Confidentialité</h3>
+				</div>
+			</div>
+	</div> --}}
 	<!-- end features list section -->
 
 	<!-- product section -->
-	<div class="product-section mt-56 mb-150">
+	<div class="product-section mt-56 mb-40">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
@@ -253,6 +260,54 @@
 
 		</div>
 	</div>
+		<!-- logo carousel -->
+		<div class="logo-carousel-section mt-12 mb-12 bg-white">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="logo-carousel-inner">
+							<div class="single-logo-item">
+								<img src="assets/img/company-logos/6.png" alt="">
+							</div>
+							<div class="single-logo-item">
+								<img src="assets/img/company-logos/7.png" alt="">
+							</div>
+							<div class="single-logo-item">
+								<img src="assets/img/company-logos/8.jpg" alt="">
+							</div>
+							<div class="single-logo-item">
+								<img src="assets/img/company-logos/9.png" alt="">
+							</div>
+							<div class="single-logo-item">
+								<img src="assets/img/company-logos/10.png" alt="">
+							</div>
+							<div class="single-logo-item">
+								<img src="assets/img/company-logos/11.png" alt="">
+							</div>
+							<div class="single-logo-item">
+								<img src="assets/img/company-logos/12.jpg" alt="">
+							</div>
+							<div class="single-logo-item">
+								<img src="assets/img/company-logos/13.jpg" alt="">
+							</div>
+							<div class="single-logo-item">
+								<img src="assets/img/company-logos/144.png" alt="">
+							</div>
+							<div class="single-logo-item">
+								<img src="assets/img/company-logos/15.png" alt="">
+							</div>
+							<div class="single-logo-item">
+								<img src="assets/img/company-logos/16.png" alt="">
+							</div>
+							<div class="single-logo-item">
+								<img src="assets/img/company-logos/17.png" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end logo carousel -->
 	<!-- end product section -->
 
 	<!-- cart banner section -->
@@ -378,56 +433,908 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">	
-						<h3><span class="orange-text">Our</span> News</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+						<h3><span class="orange-text">Nos</span> Catégories</h3>
 					</div>
 				</div>
+			</div>
+{{-- Lunette sol Homme --}}
+<div class="container mt-5">
+	<div class="d-flex justify-content-between align-items-center">
+
+		<h2 class="text-left small-screen-h2 ">Lunette Solaire Homme</h2>
+		<button class="btn text-white mb-3 size" style="background-color: #508CA4">Afficher plus <i class="fas fa-tihn fa-eye"></i></button>	 </h2> 
+
+	</div>
+
+
+	<div id="productCarousel1" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<div class="row">
+					<div class="col-6 col-md-3">
+						<div class="card">
+							<a href="/here">
+								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 1">
+								<div class="card-img-overlay">
+									<span class="fas fa-eye fa-2x"></span>
+								</div>
+							</a>
+							<div class="card-body">
+								<h5 class="card-title">Product 1</h5>
+								<p class="card-text">Description for Product 1.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-6 col-md-3">
+						<div class="card">
+							<a href="/here">
+								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 2">
+								<div class="card-img-overlay">
+									<span class="fas fa-eye fa-2x"></span>
+								</div>
+							</a>
+							<div class="card-body">
+								<h5 class="card-title">Product 2</h5>
+								<p class="card-text">Description for Product 2.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-6 col-md-3">
+						<div class="card">
+							<a href="/here">
+								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 3">
+								<div class="card-img-overlay">
+									<span class="fas fa-eye fa-2x"></span>
+								</div>
+							</a>
+							<div class="card-body">
+								<h5 class="card-title">Product 3</h5>
+								<p class="card-text">Description for Product 3.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-6 col-md-3">
+						<div class="card">
+							<a href="/here">
+								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 4">
+								<div class="card-img-overlay">
+									<span class="fas fa-eye fa-2x"></span>
+								</div>
+							</a>
+							<div class="card-body">
+								<h5 class="card-title">Product 4</h5>
+								<p class="card-text">Description for Product 4.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="row">
+					<div class="col-6 col-md-3">
+						<div class="card">
+							<a href="/here">
+								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 5">
+								<div class="card-img-overlay">
+									<span class="fas fa-eye fa-2x"></span>
+								</div>
+							</a>
+							<div class="card-body">
+								<h5 class="card-title">Product 5</h5>
+								<p class="card-text">Description for Product 5.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-6 col-md-3">
+						<div class="card">
+							<a href="/here">
+								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 6">
+								<div class="card-img-overlay">
+									<span class="fas fa-eye fa-2x"></span>
+								</div>
+							</a>
+							<div class="card-body">
+								<h5 class="card-title">Product 6</h5>
+								<p class="card-text">Description for Product 6.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-6 col-md-3">
+						<div class="card">
+							<a href="/here">
+								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 7">
+								<div class="card-img-overlay">
+									<span class="fas fa-eye fa-2x"></span>
+								</div>
+							</a>
+							<div class="card-body">
+								<h5 class="card-title">Product 7</h5>
+								<p class="card-text">Description for Product 7.</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-6 col-md-3">
+						<div class="card">
+							<a href="/here">
+								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 8">
+								<div class="card-img-overlay">
+									<span class="fas fa-eye fa-2x"></span>
+								</div>
+							</a>
+							<div class="card-body">
+								<h5 class="card-title">Product 8</h5>
+								<p class="card-text">Description for Product 8.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#productCarousel1" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#productCarousel1" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+</div>
+    <div class="container mt-5">
+
+
+			<div class="d-flex justify-content-between align-items-center">
+
+				<h2 class="text-left small-screen-h2 ">Lunette Solaire Femme</h2>
+				<button class="btn text-white mb-3 " style="background-color: #508CA4">Afficher plus</button>	 </h2> 
 			</div>
 
-			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-1"></div></a>
-						<div class="news-text-box">
-							<h3><a href="single-news.html">You will vainly look for fruit on it in autumn.</a></h3>
-							<p class="blog-meta">
-								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-							</p>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-2"></div></a>
-						<div class="news-text-box">
-							<h3><a href="single-news.html">A man's worth has its season, like tomato.</a></h3>
-							<p class="blog-meta">
-								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-							</p>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-3"></div></a>
-						<div class="news-text-box">
-							<h3><a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a></h3>
-							<p class="blog-meta">
-								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-							</p>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
+
+
+        <div id="productCarousel2" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 1">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 1</h5>
+                                    <p class="card-text">Description for Product 1.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 2">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 2</h5>
+                                    <p class="card-text">Description for Product 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 3">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 3</h5>
+                                    <p class="card-text">Description for Product 3.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 4">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 4</h5>
+                                    <p class="card-text">Description for Product 4.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 5">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 5</h5>
+                                    <p class="card-text">Description for Product 5.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 6">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 6</h5>
+                                    <p class="card-text">Description for Product 6.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 7">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 7</h5>
+                                    <p class="card-text">Description for Product 7.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 8">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 8</h5>
+                                    <p class="card-text">Description for Product 8.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#productCarousel2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#productCarousel2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+	<div class="container mt-5">
+
+		<div class="d-flex justify-content-between align-items-center">
+
+			<h2 class="text-left small-screen-h2 h2 text-sm">Lunette Optique Homme</h2>
+			<button class="btn text-white mb-3 " style="background-color: #508CA4">Afficher plus</button>	 </h2> 
+		</div>
+
+
+
+
+        <div id="productCarousel3" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 1">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 1</h5>
+                                    <p class="card-text">Description for Product 1.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 2">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 2</h5>
+                                    <p class="card-text">Description for Product 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 3">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 3</h5>
+                                    <p class="card-text">Description for Product 3.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 4">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 4</h5>
+                                    <p class="card-text">Description for Product 4.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 5">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 5</h5>
+                                    <p class="card-text">Description for Product 5.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 6">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 6</h5>
+                                    <p class="card-text">Description for Product 6.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 7">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 7</h5>
+                                    <p class="card-text">Description for Product 7.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 8">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 8</h5>
+                                    <p class="card-text">Description for Product 8.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#productCarousel3" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#productCarousel3" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="container mt-5">
+
+		<div class="d-flex justify-content-between align-items-center">
+
+			<h2 class="text-left small-screen-h2 ">Lunette Optique Femme</h2>
+			<button class="btn text-white mb-3 " style="background-color: #508CA4">Afficher plus</button>	 </h2> 
+		</div>
+
+
+        <div id="productCarousel4" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 1">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 1</h5>
+                                    <p class="card-text">Description for Product 1.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 2">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 2</h5>
+                                    <p class="card-text">Description for Product 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 3">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 3</h5>
+                                    <p class="card-text">Description for Product 3.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 4">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 4</h5>
+                                    <p class="card-text">Description for Product 4.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 5">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 5</h5>
+                                    <p class="card-text">Description for Product 5.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 6">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 6</h5>
+                                    <p class="card-text">Description for Product 6.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 7">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 7</h5>
+                                    <p class="card-text">Description for Product 7.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 8">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 8</h5>
+                                    <p class="card-text">Description for Product 8.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#productCarousel4" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#productCarousel4" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+	<div class="container mt-5">
+
+		<div class="d-flex justify-content-between align-items-center">
+
+			<h2 class="text-left small-screen-h2 ">Lunette Optique Enfant</h2>
+			<button class="btn text-white mb-3 " style="background-color: #508CA4">Afficher plus</button>	 </h2> 
+		</div>
+
+
+
+        <div id="productCarousel5" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 1">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 1</h5>
+                                    <p class="card-text">Description for Product 1.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 2">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 2</h5>
+                                    <p class="card-text">Description for Product 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 3">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 3</h5>
+                                    <p class="card-text">Description for Product 3.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 4">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 4</h5>
+                                    <p class="card-text">Description for Product 4.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 5">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 5</h5>
+                                    <p class="card-text">Description for Product 5.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 6">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 6</h5>
+                                    <p class="card-text">Description for Product 6.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 7">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 7</h5>
+                                    <p class="card-text">Description for Product 7.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 8">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 8</h5>
+                                    <p class="card-text">Description for Product 8.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#productCarousel5" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#productCarousel5" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+	<div class="container mt-5">
+
+		<div class="d-flex justify-content-between align-items-center">
+
+			<h2 class="text-left small-screen-h2 ">Montres</h2>
+			<button class="btn text-white mb-3 " style="background-color: #508CA4">Afficher plus</button>	 </h2> 
+		</div>
+
+
+        <div id="productCarousel7" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 1">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 1</h5>
+                                    <p class="card-text">Description for Product 1.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 2">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 2</h5>
+                                    <p class="card-text">Description for Product 2.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 3">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 3</h5>
+                                    <p class="card-text">Description for Product 3.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 4">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 4</h5>
+                                    <p class="card-text">Description for Product 4.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 5">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 5</h5>
+                                    <p class="card-text">Description for Product 5.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 6">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 6</h5>
+                                    <p class="card-text">Description for Product 6.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 7">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 7</h5>
+                                    <p class="card-text">Description for Product 7.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="card">
+                                <a href="/here">
+                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 8">
+                                    <div class="card-img-overlay">
+                                        <span class="fas fa-eye fa-2x"></span>
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title">Product 8</h5>
+                                    <p class="card-text">Description for Product 8.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#productCarousel7" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#productCarousel7" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+		
+			<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<a href="news.html" class="boxed-btn">More News</a>
@@ -437,45 +1344,7 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
 	</div>
 	<!-- end latest news -->
 
-	<!-- logo carousel -->
-	<div class="logo-carousel-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="logo-carousel-inner">
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/6.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/7.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/7.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/7.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/7.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/7.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/8.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/9.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/10.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end logo carousel -->
+
 
 	<!-- footer -->
 	<div class="footer-area">

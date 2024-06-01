@@ -54,7 +54,7 @@
 
         // logo carousel
         $(".logo-carousel-inner").owlCarousel({
-            items: 4,
+            items: 5,
             loop: true,
             autoplay: true,
             margin: 30,
@@ -68,7 +68,7 @@
                     nav:false
                 },
                 1000:{
-                    items:4,
+                    items:5,
                     nav:false,
                     loop:true
                 }
@@ -163,6 +163,7 @@
     jQuery(window).on("load",function(){
         jQuery(".loader").fadeOut(1000);
     });
+    
 
 
 }(jQuery));

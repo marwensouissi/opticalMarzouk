@@ -1563,6 +1563,8 @@ div.owl-controls, .owl-controls div {
 .list-box {
   overflow: hidden;
   letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
 }
 
 .list-box .content h3 {
@@ -1571,7 +1573,20 @@ div.owl-controls, .owl-controls div {
   font-size: 18px;
   margin-bottom: 4px;
 }
+.list-icon {
+  display: flex;
+  align-items: center;
+}
+.h3-con {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
+.alone {
+  white-space: nowrap;
+}
 .list-box .content p {
   margin-bottom: 0px;
   opacity#1f4061
@@ -2761,3 +2776,46 @@ table.order-details tbody td {
   vertical-align: middle;
   width: 100%;
 }
+/* i added */ .card-img-overlay {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .card:hover .card-img-overlay {
+            display: flex;
+        }
+
+        .card-img-top {
+            transition: transform 0.2s;
+        }
+
+        .card:hover .card-img-top {
+            transform: scale(1.1);
+            filter: blur(3px);
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item .col-4 {
+                flex: 0 0 33.3333%;
+                max-width: 33.3333%;
+            }
+
+            .card-img-top {
+                height: 100px;
+                object-fit: cover;
+            }
+
+            @media (max-width: 576px) {
+              .h2-responsive {
+                  font-size: 10px; /* Adjust the font size as per your design needs */
+              }
+          }
+              /* Media query for screens smaller than 768px (typical tablets and mobiles) */
+      .small-screen-h2 {
+        font-size: 1.75rem; /* Font size for smaller screens */
+      }
+        }
+
+        
