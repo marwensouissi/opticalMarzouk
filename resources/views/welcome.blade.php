@@ -31,23 +31,57 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
-	<style>
-	.containers {
-		display: flex;
-		justify-content: center;
-		
-	}
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    
+        .single-product-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 2s, transform 2s;
+        }
+        
 
-	.list-box {
-		width: 33.33%;
-	}
+        .containers {
+            display: flex;
+            justify-content: center;
+        }
 
-	@media (max-width: 767px) {
-		.list-box {
-			width: 100%;
-		}
-	}
-</style>
+        .list-box {
+            width: 33.33%;
+        }
+
+        @media (max-width: 767px) {
+            .list-box {
+                width: 100%;
+            }
+        }
+
+        .carousel-items {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .carousel-items.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-text {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .fade-text.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    </style>
 </head>
 <body>
 	
@@ -216,26 +250,26 @@
 	<!-- end features list section -->
 
 	<!-- product section -->
-	<div class="product-section mt-56 mb-40">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="section-title">	
-						<h3 class="orange-text mt-5">Nos Produits</h3>
-					</div>
-				</div>
-			</div>
+    <div class="product-section mt-56 mb-40">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 text-center product" id="product1">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="section-title">
+                        <h3 class="orange-text mt-5 fade-text">Nos Produits</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 text-center product">
                     <div class="single-product-item">
                         <div class="product-image">
                             <a href="single-product.html"><img src="assets/img/products/opt1.jpg" alt=""></a>
                         </div>
-                        <h3>Lunettes Optique </h3>
+                        <h3>Lunettes Optique</h3>
                         <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 text-center product" id="product2">
+                <div class="col-lg-4 col-md-4 col-sm-4 text-center product">
                     <div class="single-product-item">
                         <div class="product-image">
                             <a href="single-product.html"><img src="assets/img/products/sol1.jpg" alt=""></a>
@@ -244,8 +278,7 @@
                         <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                     </div>
                 </div>
-            
-                <div class="col-lg-4 col-md-4 col-sm-4 text-center product" id="product3">
+                <div class="col-lg-4 col-md-4 col-sm-4 text-center product">
                     <div class="single-product-item">
                         <div class="product-image">
                             <a href="single-product.html"><img src="assets/img/products/sol1.jpg" alt=""></a>
@@ -254,14 +287,56 @@
                         <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
-            </div> 
-            
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if ('IntersectionObserver' in window) {
+                let options = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.1
+                };
 
-		</div>
-	</div>
+                let observer = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            let products = document.querySelectorAll('.single-product-item');
+                            products.forEach((product, index) => {
+                                setTimeout(() => {
+                                    product.style.opacity = '1';
+                                    product.style.transform = 'translateY(0)';
+                                }, index * 500);  // Adjusted the delay for staggered effect
+                            });
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, options);
+
+                let target = document.querySelector('.product-section');
+                observer.observe(target);
+            } else {
+                let products = document.querySelectorAll('.single-product-item');
+                products.forEach((product, index) => {
+                    setTimeout(() => {
+                        product.style.opacity = '1';
+                        product.style.transform = 'translateY(0)';
+                    }, index * 500);  // Adjusted the delay for staggered effect
+                });
+            }
+        });
+    </script>
+
+    
+
+
+
+
+    
 		<!-- logo carousel -->
-		<div class="logo-carousel-section mt-12 mb-12 bg-white">
+		<div class="logo-carousel-section -mt-16 mb-12 bg-white">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -311,119 +386,15 @@
 	<!-- end product section -->
 
 	<!-- cart banner section -->
-	<section class="cart-banner pt-100 pb-100">
-    	<div class="container">
-        	<div class="row clearfix">
-            	<!--Image Column-->
-            	<div class="image-column col-lg-6">
-                	<div class="image">
-                    	
-                    	<img src="assets/img/im2.jpg" alt="">
-                    </div>
-                </div>
-                <!--Content Column-->
-                <div class="content-column col-lg-6">
-					<h3><span class="orange-text">Voyez la différence</span> </h3>
-                    <h4> Personnalisez vos lunettes pour une vision parfaite </h4>
-                    <div class="text">
-                        
-Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à votre vue. Découvrez une expérience d'achat simplifiée, avec un ajustement parfait et un prix final transparent.
 
-                    </div>
-                    <!--Countdown Timer-->
-                	<a href="cart.html" class="cart-btn mt-3 justify"><i class="fas fa-shopping-cart"></i> Consulter Les Lunettes </a>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- end cart banner section -->
 
-	<!-- testimonail-section -->
-	<div class="testimonail-section mt-150 mb-150">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-10 offset-lg-1 text-center">
-					<div class="testimonial-sliders">
-						<div class="single-testimonial-slider">
-							<div class="client-avater">
-								<img src="assets/img/avaters/avatar1.png" alt="">
-							</div>
-							<div class="client-meta">
-								<h3>Saira Hakim <span>Local shop owner</span></h3>
-								<p class="testimonial-body">
-									" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
-								</p>
-								<div class="last-icon">
-									<i class="fas fa-quote-right"></i>
-								</div>
-							</div>
-						</div>
-						<div class="single-testimonial-slider">
-							<div class="client-avater">
-								<img src="assets/img/avaters/avatar2.png" alt="">
-							</div>
-							<div class="client-meta">
-								<h3>David Niph <span>Local shop owner</span></h3>
-								<p class="testimonial-body">
-									" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
-								</p>
-								<div class="last-icon">
-									<i class="fas fa-quote-right"></i>
-								</div>
-							</div>
-						</div>
-						<div class="single-testimonial-slider">
-							<div class="client-avater">
-								<img src="assets/img/avaters/avatar3.png" alt="">
-							</div>
-							<div class="client-meta">
-								<h3>Jacob Sikim <span>Local shop owner</span></h3>
-								<p class="testimonial-body">
-									" Sed ut perspiciatis unde omnis iste natus error veritatis et  quasi architecto beatae vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
-								</p>
-								<div class="last-icon">
-									<i class="fas fa-quote-right"></i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
 	<!-- end testimonail-section -->
 	
-	<!-- advertisement section -->
-	<div class="abt-section mb-150">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-12">
-					<div class="abt-bg">
-						<a href="https://www.youtube.com/watch?v=DBLlFWYcIGQ" class="video-play-btn popup-youtube"><i class="fas fa-play"></i></a>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-12">
-					<div class="abt-text">
-						<p class="top-sub">Since Year 1999</p>
-						<h2>We are <span class="orange-text">Fruitkha</span></h2>
-						<p>Etiam vulputate ut augue vel sodales. In sollicitudin neque et massa porttitor vestibulum ac vel nisi. Vestibulum placerat eget dolor sit amet posuere. In ut dolor aliquet, aliquet sapien sed, interdum velit. Nam eu molestie lorem.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente facilis illo repellat veritatis minus, et labore minima mollitia qui ducimus.</p>
-						<a href="about.html" class="boxed-btn mt-4">know more</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 	<!-- end advertisement section -->
 	
 	<!-- shop banner -->
-	<section class="shop-banner">
-    	<div class="container">
-        	<h3>December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>
-            <div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>
-            <a href="shop.html" class="cart-btn btn-lg">Shop Now</a>
-        </div>
-    </section>
 	<!-- end shop banner -->
 
 	<!-- latest news -->
@@ -432,14 +403,16 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
 
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="section-title">	
-						<h3><span class="orange-text">Nos</span> Catégories</h3>
-					</div>
+                    <div class="section-title d-flex align-items-center justify-content-center">
+                        <h2 class="orange-text  mr-3" >Nos Catégories</h2>
+                        <img src="assets/img/categorie.png" style="width: 4%; height: 4%; margin-bottom: 2%"  alt="">
+                    </div>
+                    
 				</div>
 			</div>
 {{-- Lunette sol Homme --}}
 <div class="container mt-5">
-	<div class="d-flex justify-content-between align-items-center">
+	<div class="d-flex justify-content-between align-items-center prod">
 
 		<h2 class="text-left small-screen-h2 ">Lunette Solaire Homme</h2>
 		<button class="btn text-white mb-3 size" style="background-color: #508CA4">Afficher plus <i class="fas fa-tihn fa-eye"></i></button>	 </h2> 
@@ -450,7 +423,7 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
 	<div id="productCarousel1" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<div class="row">
+				<div class="row carousel-items">
 					<div class="col-6 col-md-3">
 						<div class="card">
 							<a href="/here">
@@ -510,7 +483,7 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
 				</div>
 			</div>
 			<div class="carousel-item">
-				<div class="row">
+				<div class="row carousel-items">
 					<div class="col-6 col-md-3">
 						<div class="card">
 							<a href="/here">
@@ -570,16 +543,17 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
 				</div>
 			</div>
 		</div>
-		<a class="carousel-control-prev" href="#productCarousel1" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="carousel-control-next" href="#productCarousel1" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
+        <a class="carousel-control-prev" href="#productCarousel1" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#productCarousel1" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
 		</a>
 	</div>
 </div>
+
     <div class="container mt-5">
 
 
@@ -594,7 +568,7 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
         <div id="productCarousel2" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="row">
+                    <div class="row carousel-items">
                         <div class="col-6 col-md-3">
                             <div class="card">
                                 <a href="/here">
@@ -654,7 +628,7 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="row">
+                    <div class="row carousel-items">
                         <div class="col-6 col-md-3">
                             <div class="card">
                                 <a href="/here">
@@ -739,7 +713,7 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
         <div id="productCarousel3" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="row">
+                    <div class="row carousel-items">
                         <div class="col-6 col-md-3">
                             <div class="card">
                                 <a href="/here">
@@ -799,7 +773,7 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="row">
+                    <div class="row carousel-items">
                         <div class="col-6 col-md-3">
                             <div class="card">
                                 <a href="/here">
@@ -892,7 +866,7 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
         <div id="productCarousel4" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="row">
+                    <div class="row carousel-items">
                         <div class="col-6 col-md-3">
                             <div class="card">
                                 <a href="/here">
@@ -952,7 +926,7 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="row">
+                    <div class="row carousel-items">
                         <div class="col-6 col-md-3">
                             <div class="card">
                                 <a href="/here">
@@ -1042,7 +1016,7 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
         <div id="productCarousel5" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="row">
+                    <div class="row carousel-items">
                         <div class="col-6 col-md-3">
                             <div class="card">
                                 <a href="/here">
@@ -1102,7 +1076,7 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="row">
+                    <div class="row carousel-items">
                         <div class="col-6 col-md-3">
                             <div class="card">
                                 <a href="/here">
@@ -1192,7 +1166,7 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
         <div id="productCarousel7" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="row">
+                    <div class="row carousel-items">
                         <div class="col-6 col-md-3">
                             <div class="card">
                                 <a href="/here">
@@ -1252,7 +1226,7 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="row">
+                    <div class="row carousel-items ">
                         <div class="col-6 col-md-3">
                             <div class="card">
                                 <a href="/here">
@@ -1324,7 +1298,47 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
     </div>
 
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+          };
+      
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, observerOptions);
+      
+          document.querySelectorAll('.carousel-items').forEach(item => {
+            observer.observe(item);
+          });
 
+        const nosProduitsObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        } else {
+          entry.target.classList.remove('active');
+        }
+      });
+    }, observerOptions);
+
+    // Target the animated "Nos Produits" section
+    const nosProduitsSection = document.querySelector('.fade-text');
+    if (nosProduitsSection) {
+      nosProduitsObserver.observe(nosProduitsSection);
+    }
+  });
+      </script>
+
+      
 
 
 
@@ -1337,7 +1351,7 @@ Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à 
 			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 			<div class="row">
 				<div class="col-lg-12 text-center">
-					<a href="news.html" class="boxed-btn">More News</a>
+                    <img src="assets/img/logobl.png" style="width: 20%; margin-top:5%" alt="">
 				</div>
 			</div>
 		</div>

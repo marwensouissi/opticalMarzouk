@@ -2818,4 +2818,12 @@ table.order-details tbody td {
       }
         }
 
-        
+        .carousel-control-prev,
+        .carousel-control-next {
+          pointer-events: none;
+        }
+    
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+          pointer-events: auto;
+        }

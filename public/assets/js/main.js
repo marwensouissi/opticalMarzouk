@@ -53,27 +53,30 @@
         });
 
         // logo carousel
-        $(".logo-carousel-inner").owlCarousel({
-            items: 5,
-            loop: true,
-            autoplay: true,
-            margin: 30,
-            responsive:{
-                0:{
-                    items:1,
-                    nav:false
+        $(document).ready(function() {
+            $(".logo-carousel-inner").owlCarousel({
+              items: 5,
+              loop: true,
+              autoplay: true,
+              autoplayTimeout: 1000,  // 1 second
+              margin: 30,
+              responsive: {
+                0: {
+                  items: 1,
+                  nav: false
                 },
-                600:{
-                    items:3,
-                    nav:false
+                600: {
+                  items: 3,
+                  nav: false
                 },
-                1000:{
-                    items:5,
-                    nav:false,
-                    loop:true
+                1000: {
+                  items: 5,
+                  nav: false,
+                  loop: true
                 }
-            }
-        });
+              }
+            });
+          });
 
         // count down
         if($('.time-countdown').length){  
