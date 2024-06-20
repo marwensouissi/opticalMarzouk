@@ -2432,10 +2432,19 @@ ul.social-link-team li a {
 }
 
 .product-image img {
-  width: 90%;
-  border-radius: 5px;
-  margin-bottom: 20px;
+    width: 80%;
+    max-width: 100%; /* Ensures image doesn't exceed its container's width */
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
+
+@media (max-width: 992px) {
+    .col-lg-4 {
+        flex: 0 0 100%; /* Ensures each column takes 100% width on medium screens and below */
+        max-width: 100%;
+    }
+}
+
 
 .single-product-item h3 {
   font-size: 20px;
@@ -2827,3 +2836,89 @@ table.order-details tbody td {
         .carousel-control-next-icon {
           pointer-events: auto;
         }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+      }
+  
+      .single-product-item {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 2s, transform 2s;
+      }
+      
+
+      .containers {
+          display: flex;
+          justify-content: center;
+      }
+
+      .list-box {
+          width: 33.33%;
+      }
+
+      @media (max-width: 767px) {
+          .list-box {
+              width: 100%;
+          }
+      }
+
+      .carousel-items {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .carousel-items.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-text {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+
+  .fade-text.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+  @keyframes slideInFromLeft {
+      from {
+          opacity: 0;
+          transform: translateX(-100%);
+      }
+      to {
+          opacity: 1;
+          transform: translateX(0);
+      }
+  }
+
+  @keyframes slideInFromRight {
+      from {
+          opacity: 0;
+          transform: translateX(100%);
+      }
+      to {
+          opacity: 1;
+          transform: translateX(0);
+      }
+  }
+
+  .image-column,
+  .content-column {
+      opacity: 0;
+      transition: opacity 2s, transform 2s;
+  }
+
+  .image-column.animated {
+      animation: slideInFromLeft 2s forwards;
+  }
+
+  .content-column.animated {
+      animation: slideInFromRight 1s forwards;
+  }

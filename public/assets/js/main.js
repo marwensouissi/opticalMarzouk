@@ -167,6 +167,116 @@
         jQuery(".loader").fadeOut(1000);
     });
     
+    // anim1
+        document.addEventListener('DOMContentLoaded', function() {
+            if ('IntersectionObserver' in window) {
+                let options = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.1
+                };
+
+                let observer = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            let products = document.querySelectorAll('.single-product-item');
+                            products.forEach((product, index) => {
+                                setTimeout(() => {
+                                    product.style.opacity = '1';
+                                    product.style.transform = 'translateY(0)';
+                                }, index * 500);  // Adjusted the delay for staggered effect
+                            });
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, options);
+
+                let target = document.querySelector('.product-section');
+                observer.observe(target);
+            } else {
+                let products = document.querySelectorAll('.single-product-item');
+                products.forEach((product, index) => {
+                    setTimeout(() => {
+                        product.style.opacity = '1';
+                        product.style.transform = 'translateY(0)';
+                    }, index * 500);  // Adjusted the delay for staggered effect
+                });
+            }
+        });
+    //anim 2  x->x 
+
+    document.addEventListener('DOMContentLoaded', function() {
+        if ('IntersectionObserver' in window) {
+            let options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            let observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            let targets = document.querySelectorAll('.image-column, .content-column');
+            targets.forEach(target => {
+                observer.observe(target);
+            });
+        } else {
+            // Fallback for browsers that do not support IntersectionObserver
+            let targets = document.querySelectorAll('.image-column, .content-column');
+            targets.forEach(target => {
+                target.classList.add('animated');
+            });
+        }
+    });
+
+
+    // animation produçct
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+  
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+  
+      document.querySelectorAll('.carousel-items').forEach(item => {
+        observer.observe(item);
+      });
+
+    const nosProduitsObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      observer.unobserve(entry.target);
+    } else {
+      entry.target.classList.remove('active');
+    }
+  });
+}, observerOptions);
+
+// Target the animated "Nos Produits" section
+const nosProduitsSection = document.querySelector('.fade-text');
+if (nosProduitsSection) {
+  nosProduitsObserver.observe(nosProduitsSection);
+}
+});
+  
 
 
 }(jQuery));

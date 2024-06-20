@@ -1,199 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+@extends('master.front')
 
-	<!-- title -->
-	<title>Fruitkha</title>
+@section('welcome')
 
-	<!-- favicon -->
-	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
-	<!-- google font -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
-	<!-- fontawesome -->
-	<link rel="stylesheet" href="assets/css/all.min.css">
-	<!-- bootstrap -->
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-	<!-- owl carousel -->
-	<link rel="stylesheet" href="assets/css/owl.carousel.css">
-	<!-- magnific popup -->
-	<link rel="stylesheet" href="assets/css/magnific-popup.css">
-	<!-- animate css -->
-	<link rel="stylesheet" href="assets/css/animate.css">
-	<!-- mean menu css -->
-	<link rel="stylesheet" href="assets/css/meanmenu.min.css">
-	<!-- main style -->
-	<link rel="stylesheet" href="assets/css/main.css">
-	<!-- responsive -->
-	<link rel="stylesheet" href="assets/css/responsive.css">
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    
-        .single-product-item {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 2s, transform 2s;
-        }
-        
-
-        .containers {
-            display: flex;
-            justify-content: center;
-        }
-
-        .list-box {
-            width: 33.33%;
-        }
-
-        @media (max-width: 767px) {
-            .list-box {
-                width: 100%;
-            }
-        }
-
-        .carousel-items {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-
-    .carousel-items.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .fade-text {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-
-    .fade-text.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    </style>
-</head>
-<body>
-	
-	<!--PreLoader-->
-    <div class="loader">
-        <div class="loader-inner">
-            <div class="circle"></div>
-        </div>
-    </div>
-    <!--PreLoader Ends-->
-	
-	<!-- header -->
-	<div class="top-header-area" id="sticker">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 col-sm-12 text-center">
-					<div class="main-menu-wrap ">
-						<!-- logo -->
-                        <div class="site-logo">
-                            <a href="index.html">
-                                <img id="logo-img" src="assets/img/logobl.png" style="width: 76%">
-                            </a>
-                        </div>
-                        
-                        <script>
-                            function updateLogo() {
-                                var logoImg = document.getElementById('logo-img');
-                                var screenWidth = window.innerWidth;
-                        
-                                // Check if the screen width is less than or equal to a certain value (e.g., for phone resolution)
-                                if (screenWidth <= 993) {
-                                    logoImg.src = 'assets/img/logowhite.png';
-                                } else {
-                                    logoImg.src = 'assets/img/logobl.png';
-                                }
-                            }
-                        
-                            // Call the function initially and add an event listener to handle window resizing
-                            updateLogo();
-                            window.addEventListener('resize', updateLogo);
-                        </script>
-						<!-- logo -->
-
-						<!-- menu start -->
-						<nav class="main-menu">
-							<ul>
-								<li class="current-list-item"><a href="#">Home</a>
-									<ul class="sub-menu">
-										<li><a href="index.html">Static Home</a></li>
-										<li><a href="index_2.html">Slider Home</a></li>
-									</ul>
-								</li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="#">Pages</a>
-									<ul class="sub-menu">
-										<li><a href="404.html">404 page</a></li>
-										<li><a href="about.html">About</a></li>
-										<li><a href="cart.html">Cart</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="contact.html">Contact</a></li>
-										<li><a href="news.html">News</a></li>
-										<li><a href="shop.html">Shop</a></li>
-									</ul>
-								</li>
-								<li><a href="news.html">News</a>
-									<ul class="sub-menu">
-										<li><a href="news.html">News</a></li>
-										<li><a href="single-news.html">Single News</a></li>
-									</ul>
-								</li>
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="shop.html">Shop</a>
-									<ul class="sub-menu">
-										<li><a href="shop.html">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
-										<li><a href="cart.html">Cart</a></li>
-									</ul>
-								</li>
-								<li>
-									<div class="header-icons">
-										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-									</div>
-								</li>
-							</ul>
-						</nav>
-						<div class="mobile-menu"></div>
-						<!-- menu end -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end header -->
-	
+@section('title', 'OpticalMarzouk')
 	<!-- search area -->
-	<div class="search-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<div class="search-bar">
-						<div class="search-bar-tablecell">
-							<h3>Search For:</h3>
-							<input type="text" placeholder="Keywords">
-							<button type="submit">Search <i class="fas fa-search"></i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
 	<!-- end search area -->
 
 	<!-- hero area -->
@@ -203,7 +14,7 @@
 				<div class="col-lg-9 offset-lg-2 text-center">
 					<div class="hero-text">
 						<div class="hero-text-tablecell">
-							 <p class="subtitle" style="margin-left: -64px;margin-top: -91px;">bienvenue </p> 
+							 {{-- <p class="subtitle" style="margin-left: -64px;margin-top: -91px;">bienvenue </p>  --}}
 							{{-- <h1>Optical Marzouk </h1> --}}
 							<div class="hero-btns">
 								{{-- <a href="contact.html" class="bordered-btn">Contact Us</a>
@@ -252,82 +63,118 @@
 	<!-- product section -->
     <div class="product-section mt-56 mb-40">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 text-center">
-                    <div class="section-title">
-                        <h3 class="orange-text mt-5 fade-text">Nos Produits</h3>
-                    </div>
+        <!-- For large screens, the existing grid layout -->
+<div class="d-none d-lg-block">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+            <div class="single-product-item">
+                <div class="product-image">
+                    <a href="single-product.html"><img src="assets/img/products/opt1.jpg" alt=""></a>
                 </div>
+                <h3>Lunettes Optique</h3>
+                <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Voir Plus</a>
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 text-center product">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/opt1.jpg" alt=""></a>
-                        </div>
-                        <h3>Lunettes Optique</h3>
-                        <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-                    </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+            <div class="single-product-item">
+                <div class="product-image">
+                    <a href="single-product.html"><img src="assets/img/products/sol1.jpg" alt=""></a>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 text-center product">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/sol1.jpg" alt=""></a>
-                        </div>
-                        <h3>Lunettes Solaire</h3>
-                        <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-                    </div>
+                <h3>Lunettes Solaire</h3>
+                <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Voir Plus</a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 text-center">
+            <div class="single-product-item">
+                <div class="product-image">
+                    <a href="single-product.html"><img src="assets/img/products/montr.jpg" alt=""></a>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 text-center product">
-                    <div class="single-product-item">
-                        <div class="product-image">
-                            <a href="single-product.html"><img src="assets/img/products/sol1.jpg" alt=""></a>
-                        </div>
-                        <h3>Montre</h3>
-                        <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-                    </div>
-                </div>
+                <h3>Montres</h3>
+                <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Voir Plus</a>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if ('IntersectionObserver' in window) {
-                let options = {
-                    root: null,
-                    rootMargin: '0px',
-                    threshold: 0.1
-                };
+<!-- For small screens, use a carousel -->
+<div id="productCarousel" class="carousel slide d-lg-none" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="single-product-item text-center">
+                <div class="product-image">
+                    <a href="single-product.html"><img src="assets/img/products/opt1.jpg" alt=""></a>
+                </div>
+                <h3>Lunettes Optique</h3>
+                <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Voir Plus</a>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="single-product-item text-center">
+                <div class="product-image">
+                    <a href="single-product.html"><img src="assets/img/products/sol1.jpg" alt=""></a>
+                </div>
+                <h3>Lunettes Solaire</h3>
+                <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Voir Plus</a>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="single-product-item text-center">
+                <div class="product-image">
+                    <a href="single-product.html"><img src="assets/img/products/montr.jpg" alt=""></a>
+                </div>
+                <h3>Montres</h3>
+                <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Voir Plus</a>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
-                let observer = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            let products = document.querySelectorAll('.single-product-item');
-                            products.forEach((product, index) => {
-                                setTimeout(() => {
-                                    product.style.opacity = '1';
-                                    product.style.transform = 'translateY(0)';
-                                }, index * 500);  // Adjusted the delay for staggered effect
-                            });
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, options);
+            
+            
+        </div>
+    </div>
 
-                let target = document.querySelector('.product-section');
-                observer.observe(target);
-            } else {
-                let products = document.querySelectorAll('.single-product-item');
-                products.forEach((product, index) => {
-                    setTimeout(() => {
-                        product.style.opacity = '1';
-                        product.style.transform = 'translateY(0)';
-                    }, index * 500);  // Adjusted the delay for staggered effect
-                });
-            }
-        });
-    </script>
+
+
+
+
+
+<!-- cart banner section -->
+<section class="cart-banner pt-100 pb-100">
+    <div class="container">
+        <div class="row clearfix">
+            <!--Image Column-->
+            <div class="image-column col-lg-6">
+                <div class="image">
+                    <img src="assets/img/im2.jpg" alt="">
+                </div>
+            </div>
+            <!--Content Column-->
+            <div class="content-column col-lg-6">
+                <h3><span class="orange-text">Voyez la différence</span> </h3>
+                <h4> Personnalisez vos lunettes pour une vision parfaite </h4>
+                <div class="text">
+                    Personnalisez vos lunettes sur notre site en choisissant les verres adaptés à votre vue. Découvrez une expérience d'achat simplifiée, avec un ajustement parfait et un prix final transparent.
+                </div>
+                <!--Countdown Timer-->
+                <a href="cart.html" class="cart-btn mt-3 justify"><i class="fas fa-shopping-cart"></i> Consulter Les Lunettes </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- end cart banner section -->
 
     
 
@@ -412,298 +259,112 @@
 			</div>
 {{-- Lunette sol Homme --}}
 <div class="container mt-5">
-	<div class="d-flex justify-content-between align-items-center prod">
+    <div class="d-flex justify-content-between align-items-center prod">
+        <span class="d-flex align-items-center ">
+            <h2 class="text-left small-screen-h2  mb-3  ">Lunette Solaire Homme</h2>
+            {{-- <img src="assets/img/lsh.png" style="width: 3%; height: 3%; margin-bottom: 2%; margin-left:1%" alt=""> --}}
+        </span>
+        <button class="btn text-white mb-3 size" style="background-color: #508CA4">Afficher plus <i class="fas fa-eye"></i></button>
+    </div>
 
-		<h2 class="text-left small-screen-h2 ">Lunette Solaire Homme</h2>
-		<button class="btn text-white mb-3 size" style="background-color: #508CA4">Afficher plus <i class="fas fa-tihn fa-eye"></i></button>	 </h2> 
+    <div id="productCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            @foreach ($lunettesSolairesHomme->chunk(4) as $chunk)
+                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                    <div class="row carousel-items">
+                        @foreach ($chunk as $lunetteSolaire)
+                            <div class="col-6 col-md-3">
+                                <div class="card">
+                                    <a href="/lunettesSolaires/{{ $lunetteSolaire->id }}">
+                                        <img src="{{ asset('produit/solaires/' .$lunetteSolaire->cover) }}"alt="{{ $lunetteSolaire->reference }}" loading="lazy">
 
-	</div>
-
-
-	<div id="productCarousel1" class="carousel slide" data-ride="carousel">
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<div class="row carousel-items">
-					<div class="col-6 col-md-3">
-						<div class="card">
-							<a href="/here">
-								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 1">
-								<div class="card-img-overlay">
-									<span class="fas fa-eye fa-2x"></span>
-								</div>
-							</a>
-							<div class="card-body">
-								<h5 class="card-title">Product 1</h5>
-								<p class="card-text">Description for Product 1.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-6 col-md-3">
-						<div class="card">
-							<a href="/here">
-								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 2">
-								<div class="card-img-overlay">
-									<span class="fas fa-eye fa-2x"></span>
-								</div>
-							</a>
-							<div class="card-body">
-								<h5 class="card-title">Product 2</h5>
-								<p class="card-text">Description for Product 2.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-6 col-md-3">
-						<div class="card">
-							<a href="/here">
-								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 3">
-								<div class="card-img-overlay">
-									<span class="fas fa-eye fa-2x"></span>
-								</div>
-							</a>
-							<div class="card-body">
-								<h5 class="card-title">Product 3</h5>
-								<p class="card-text">Description for Product 3.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-6 col-md-3">
-						<div class="card">
-							<a href="/here">
-								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 4">
-								<div class="card-img-overlay">
-									<span class="fas fa-eye fa-2x"></span>
-								</div>
-							</a>
-							<div class="card-body">
-								<h5 class="card-title">Product 4</h5>
-								<p class="card-text">Description for Product 4.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<div class="row carousel-items">
-					<div class="col-6 col-md-3">
-						<div class="card">
-							<a href="/here">
-								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 5">
-								<div class="card-img-overlay">
-									<span class="fas fa-eye fa-2x"></span>
-								</div>
-							</a>
-							<div class="card-body">
-								<h5 class="card-title">Product 5</h5>
-								<p class="card-text">Description for Product 5.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-6 col-md-3">
-						<div class="card">
-							<a href="/here">
-								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 6">
-								<div class="card-img-overlay">
-									<span class="fas fa-eye fa-2x"></span>
-								</div>
-							</a>
-							<div class="card-body">
-								<h5 class="card-title">Product 6</h5>
-								<p class="card-text">Description for Product 6.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-6 col-md-3">
-						<div class="card">
-							<a href="/here">
-								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 7">
-								<div class="card-img-overlay">
-									<span class="fas fa-eye fa-2x"></span>
-								</div>
-							</a>
-							<div class="card-body">
-								<h5 class="card-title">Product 7</h5>
-								<p class="card-text">Description for Product 7.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-6 col-md-3">
-						<div class="card">
-							<a href="/here">
-								<img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 8">
-								<div class="card-img-overlay">
-									<span class="fas fa-eye fa-2x"></span>
-								</div>
-							</a>
-							<div class="card-body">
-								<h5 class="card-title">Product 8</h5>
-								<p class="card-text">Description for Product 8.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                                        <div class="card-img-overlay">
+                                            <span class="fas fa-eye fa-2x"></span>
+                                        </div>
+                                    </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $lunetteSolaire->reference }}</h5>
+                                        <p class="card-text">{{ $lunetteSolaire->description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endforeach
+        </div>
         <a class="carousel-control-prev" href="#productCarousel1" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#productCarousel1" role="button" data-slide="next">
+        </a>
+        <a class="carousel-control-next" href="#productCarousel1" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
-		</a>
-	</div>
+        </a>
+    </div>
 </div>
 
-    <div class="container mt-5">
-
-
-			<div class="d-flex justify-content-between align-items-center">
-
-				<h2 class="text-left small-screen-h2 ">Lunette Solaire Femme</h2>
-				<button class="btn text-white mb-3 " style="background-color: #508CA4">Afficher plus</button>	 </h2> 
-			</div>
 
 
 
-        <div id="productCarousel2" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row carousel-items">
-                        <div class="col-6 col-md-3">
-                            <div class="card">
-                                <a href="/here">
-                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 1">
-                                    <div class="card-img-overlay">
-                                        <span class="fas fa-eye fa-2x"></span>
-                                    </div>
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Product 1</h5>
-                                    <p class="card-text">Description for Product 1.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <div class="card">
-                                <a href="/here">
-                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 2">
-                                    <div class="card-img-overlay">
-                                        <span class="fas fa-eye fa-2x"></span>
-                                    </div>
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Product 2</h5>
-                                    <p class="card-text">Description for Product 2.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <div class="card">
-                                <a href="/here">
-                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 3">
-                                    <div class="card-img-overlay">
-                                        <span class="fas fa-eye fa-2x"></span>
-                                    </div>
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Product 3</h5>
-                                    <p class="card-text">Description for Product 3.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <div class="card">
-                                <a href="/here">
-                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 4">
-                                    <div class="card-img-overlay">
-                                        <span class="fas fa-eye fa-2x"></span>
-                                    </div>
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Product 4</h5>
-                                    <p class="card-text">Description for Product 4.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row carousel-items">
-                        <div class="col-6 col-md-3">
-                            <div class="card">
-                                <a href="/here">
-                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 5">
-                                    <div class="card-img-overlay">
-                                        <span class="fas fa-eye fa-2x"></span>
-                                    </div>
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Product 5</h5>
-                                    <p class="card-text">Description for Product 5.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <div class="card">
-                                <a href="/here">
-                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 6">
-                                    <div class="card-img-overlay">
-                                        <span class="fas fa-eye fa-2x"></span>
-                                    </div>
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Product 6</h5>
-                                    <p class="card-text">Description for Product 6.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <div class="card">
-                                <a href="/here">
-                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 7">
-                                    <div class="card-img-overlay">
-                                        <span class="fas fa-eye fa-2x"></span>
-                                    </div>
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Product 7</h5>
-                                    <p class="card-text">Description for Product 7.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <div class="card">
-                                <a href="/here">
-                                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product 8">
-                                    <div class="card-img-overlay">
-                                        <span class="fas fa-eye fa-2x"></span>
-                                    </div>
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title">Product 8</h5>
-                                    <p class="card-text">Description for Product 8.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#productCarousel2" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#productCarousel2" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center prod">
+        <span class="d-flex align-items-center ">
+            <h2 class="text-left small-screen-h2 mb-3 ">Lunette Solaire Femme</h2>
+            {{-- <img src="assets/img/lsh.png" style="width: 3%; height: 3%; margin-bottom: 2%; margin-left:1%" alt=""> --}}
+        </span>
+        <button class="btn text-white mb-3 size" style="background-color: #508CA4">Afficher plus <i class="fas fa-eye"></i></button>
     </div>
+
+    <div id="productCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            @foreach ($lunettesSolairesFemme->chunk(4) as $chunk)
+                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                    <div class="row carousel-items">
+                        @foreach ($chunk as $lunetteSolaire)
+                            <div class="col-6 col-md-3">
+                                <div class="card">
+                                    <a href="{{ route('products.show', ['type' => 'lunettesOptiques', 'id' => $lunetteSolaire->id]) }}">
+                                        <img src="{{ asset('produit/solaires/' .$lunetteSolaire->cover) }}"alt="{{ $lunetteSolaire->reference }}" loading="lazy">
+
+                                        <div class="card-img-overlay">
+                                            <span class="fas fa-eye fa-2x"></span>
+                                        </div>
+                                    </a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $lunetteSolaire->reference }}</h5>
+                                        <p class="card-text">{{ $lunetteSolaire->description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <a class="carousel-control-prev" href="#productCarousel1" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#productCarousel1" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
 
 	<div class="container mt-5">
 
 		<div class="d-flex justify-content-between align-items-center">
 
-			<h2 class="text-left small-screen-h2 h2 text-sm">Lunette Optique Homme</h2>
+            <span class="d-flex align-items-center ">
+                <h2 class="text-left small-screen-h2 h2 text-sm">Lunette Optique Homme</h2>
+                <img src="assets/img/loh.png" style="width: 3%; height: 3%; margin-bottom: 2%; margin-left:1%"   alt="">
+        
+                </span>
+
+
 			<button class="btn text-white mb-3 " style="background-color: #508CA4">Afficher plus</button>	 </h2> 
 		</div>
 
@@ -858,10 +519,16 @@
 
 		<div class="d-flex justify-content-between align-items-center">
 
-			<h2 class="text-left small-screen-h2 ">Lunette Optique Femme</h2>
+            <span class="d-flex align-items-center ">
+                <h2 class="text-left small-screen-h2 ">Lunette Optique Femme</h2>
+                <img src="assets/img/lof.png" style="width: 4%; height: 3%; margin-bottom: 2%; margin-left:1%"   alt="">
+
+        
+                </span>
+
+
 			<button class="btn text-white mb-3 " style="background-color: #508CA4">Afficher plus</button>	 </h2> 
 		</div>
-
 
         <div id="productCarousel4" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -1297,160 +964,3 @@
         </div>
     </div>
 
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-          };
-      
-          const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-              }
-            });
-          }, observerOptions);
-      
-          document.querySelectorAll('.carousel-items').forEach(item => {
-            observer.observe(item);
-          });
-
-        const nosProduitsObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        } else {
-          entry.target.classList.remove('active');
-        }
-      });
-    }, observerOptions);
-
-    // Target the animated "Nos Produits" section
-    const nosProduitsSection = document.querySelector('.fade-text');
-    if (nosProduitsSection) {
-      nosProduitsObserver.observe(nosProduitsSection);
-    }
-  });
-      </script>
-
-      
-
-
-
-
-
-		
-			<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-			<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-			<div class="row">
-				<div class="col-lg-12 text-center">
-                    <img src="assets/img/logobl.png" style="width: 20%; margin-top:5%" alt="">
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end latest news -->
-
-
-
-	<!-- footer -->
-	<div class="footer-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6">
-					<div class="footer-box about-widget">
-						<h2 class="widget-title">About us</h2>
-						<p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="footer-box get-in-touch">
-						<h2 class="widget-title">Get in Touch</h2>
-						<ul>
-							<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-							<li>support@fruitkha.com</li>
-							<li>+00 111 222 3333</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="footer-box pages">
-						<h2 class="widget-title">Pages</h2>
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="services.html">Shop</a></li>
-							<li><a href="news.html">News</a></li>
-							<li><a href="contact.html">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="footer-box subscribe">
-						<h2 class="widget-title">Subscribe</h2>
-						<p>Subscribe to our mailing list to get the latest updates.</p>
-						<form action="index.html">
-							<input type="email" placeholder="Email">
-							<button type="submit"><i class="fas fa-paper-plane"></i></button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end footer -->
-	
-	<!-- copyright -->
-	<div class="copyright">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
-				</div>
-				<div class="col-lg-6 text-right col-md-12">
-					<div class="social-icons">
-						<ul>
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end copyright -->
-	
-	<!-- jquery -->
-	<script src="assets/js/jquery-1.11.3.min.js"></script>
-	<!-- bootstrap -->
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<!-- count down -->
-	<script src="assets/js/jquery.countdown.js"></script>
-	<!-- isotope -->
-	<script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
-	<!-- waypoints -->
-	<script src="assets/js/waypoints.js"></script>
-	<!-- owl carousel -->
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<!-- magnific popup -->
-	<script src="assets/js/jquery.magnific-popup.min.js"></script>
-	<!-- mean menu -->
-	<script src="assets/js/jquery.meanmenu.min.js"></script>
-	<!-- sticker js -->
-	<script src="assets/js/sticker.js"></script>
-	<!-- main js -->
-	<script src="assets/js/main.js"></script>
-
-
-</body>
-</html>

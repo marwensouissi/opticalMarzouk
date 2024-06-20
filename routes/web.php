@@ -17,6 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::post('products/{type}/{id}/add-to-cart', [\App\Http\Controllers\ProductController::class, 'addToCart'])->name('products.addToCart');
+
+Route::get('cart', [\App\Http\Controllers\CartController::class, 'index'])->name('products.panier');
+Route::post('cart/{id}/remove', [\App\Http\Controllers\CartController::class, 'removeItem'])->name('cart.removeItem');
+Route::post('cart/clear', [\App\Http\Controllers\CartController::class, 'clear'])->name('cart.clear');
+
+Route::get('products/{type}/{id}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
+
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -76,3 +87,6 @@ Route::get('/my_admin/montre/solde', [\App\Http\Controllers\SoldeController::cla
 Route::post('/my_admin/montre/update-solde', [\App\Http\Controllers\SoldeController::class, 'updateSoldeMontre'])->name('updateSoldeMontre');
 Route::get('/my_admin/montre/search', [\App\Http\Controllers\SoldeController::class, 'searchMontre'])->name('Montresearch');
 
+//panier
+
+// Route::get('products/{type}/{id}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
