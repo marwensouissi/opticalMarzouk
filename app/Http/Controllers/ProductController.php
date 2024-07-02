@@ -48,13 +48,17 @@ class ProductController extends Controller
             default:
                 abort(404); // Handle if type is not recognized
         }
+        $imagePath = $this->getImagePath($type, $product->cover);
+
         Cart::add(array(
             'id' => $type . '_' . $product->id,
             'name' => $product->marque . ' ' . $product->reference,
             'price' => $product->prix,
             'quantity' => 1,
             'attributes' => array(
-                'type' => $type
+                'type' => $type,
+                'image' => $imagePath
+
             )
         ));
 
@@ -62,7 +66,27 @@ class ProductController extends Controller
         return redirect()->route('products.panier')->with('success', 'Product added to cart!');
     }
 
+    private function getImagePath($type, $cover)
+    {
+        $baseDir = 'produit/';
+
+        switch ($type) {
+            case 'lunettesOptiques':
+                return $baseDir . 'optique/' . $cover;
+            case 'montres':
+                return $baseDir . 'montre/' . $cover;
+            case 'lunettesSolaires':
+                return $baseDir . 'solaires/' . $cover;
+            default:
+                return $baseDir . 'default.png';
+        }
+    }
+}
+
+
+    
+
     // Helper method to find a product by type and id
 
     
-}
+

@@ -14,32 +14,30 @@ class CartController extends Controller
     }
 
     public function addToCart(Request $request, $type, $id)
-    {
-        // Logic to retrieve product details based on $type and $id
-        // Example logic assuming $type can be 'lunettesOptiques', 'montre', 'lunettesSolaires', etc.
-        // Replace with your actual logic to fetch the product details
-        
-        $product = null; // Replace with your logic to fetch the product from the database
-        
-        // Example of adding product to cart using the Cart facade
+    { 
+        // Fetch the product based on the type and ID
+        $product = $this->getProductByTypeAndId($type, $id);
+
+        // Determine the image path based on the product type
+        $imagePath = $this->getImagePath($type, $product->cover);
+
+        // Add the product to the cart
         Cart::add([
-            'id' => $product->id, // Unique identifier for the product
-            'name' => $product->reference, // Name of the product
-            'price' => $product->prix, // Price of the product
-            'quantity' => 1, // Default quantity to add to cart
+            'id' => $product->id,
+            'name' => $product->reference,
+            'price' => $product->prix,
+            'quantity' => 1,
             'attributes' => [
-                'type' => $type, // Type of product (e.g., lunettesOptiques, montre, lunettesSolaires, etc.)
-                'image' => $product->cover, // Example attribute (cover image)
+                'type' => $type,
+                'image' => $imagePath,
             ],
         ]);
 
-        // Redirect back to the previous page or to a specific route
         return redirect()->route('products.show', ['type' => $type, 'id' => $id])->with('success', 'Product added to cart successfully.');
     }
 
     public function removeItem($id)
     {
-        // Logic to remove item from cart
         Cart::remove($id);
 
         return redirect()->route('products.panier')->with('success', 'Item removed from cart.');
@@ -47,9 +45,38 @@ class CartController extends Controller
 
     public function clear()
     {
-        // Logic to clear the cart
         Cart::clear();
 
         return redirect()->route('products.panier')->with('success', 'Cart cleared.');
+    }
+
+    private function getProductByTypeAndId($type, $id)
+    {
+        switch ($type) {
+            case 'lunettesOptiques':
+                return LunettesOptiques::find($id);
+            case 'montres':
+                return Montres::find($id);
+            case 'lunettesSolaires':
+                return LunettesSolaires::find($id);
+            default:
+                return null;
+        }
+    }
+
+    private function getImagePath($type, $cover)
+    {
+        $baseDir = 'produit/';
+
+        switch ($type) {
+            case 'lunettesOptiques':
+                return $baseDir . 'optique/' . $cover;
+            case 'montres':
+                return $baseDir . 'montre/' . $cover;
+            case 'lunettesSolaires':
+                return $baseDir . 'solaire/' . $cover;
+            default:
+                return $baseDir . 'default.png';
+        }
     }
 }

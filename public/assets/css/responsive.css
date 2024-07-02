@@ -158,7 +158,6 @@
 
 	.sticky-wrapper.is-sticky .top-header-area {
 	    position: absolute!important;
-	    background-color: transparent;
 	}
 	.featured-box {
 	    padding: 30px;
@@ -169,6 +168,8 @@
 	}
 	nav.main-menu {
 	    display: none;
+		width: 100%;
+
 	}
 	table.order-details {
 	    width: 100%;
@@ -238,6 +239,7 @@
 	}
 	.responsive-menu {
 	    left: auto;
+		width: 100%;
 	    right: 0;
 	}
 
@@ -409,8 +411,8 @@
 
 	.sticky-wrapper.is-sticky .top-header-area {
 	    position: absolute!important;
-	    background-color: transparent;
-	    padding: 25px 0;
+		width: 100%;
+
 	}
 	.featured-box {
 	    padding: 0 45px;
@@ -474,6 +476,8 @@
 
 	.main-menu {
 	    display: none;
+		width: 100%;
+
 	}
 	.error-text h1 {
 	    font-size: 25px;

@@ -526,18 +526,24 @@ ul.navbar-nav li.nav-item a.nav-link, ul.navbar-nav li.nav-item.active a.nav-lin
 }
 
 .top-header-area {
-  position: absolute;
+  position: fixed;
   z-index: 999;
   width: 100%;
   padding: 25px 0;
+  color: #051922;
+  padding-top: 20%;
+  background-color: #051922; /* Adds a semi-transparent black background */
+
+
 }
 
 .top-header-area.white ul.navbar-nav li.nav-item a.nav-link, .top-header-area.white ul.navbar-nav li.nav-item.active a.nav-link {
-  color: #fff;
+  color: #051922;
+  
 }
 
 ul.navbar-nav li.nav-item a.nav-link, ul.navbar-nav li.nav-item.active a.nav-link {
-  color: #fff;
+  color: #051922;
   font-weight: 700;
   margin-right: 14px;
 }
@@ -568,7 +574,7 @@ nav.main-menu ul > li {
 }
 
 nav.main-menu ul ul.sub-menu {
-  position: absolute;
+  position: fixed;
   background-color: #fff;
   width: 220px;
   padding: 15px 15px;
@@ -612,7 +618,7 @@ nav.main-menu > ul li:last-child {
 
 .site-logo {
   float: left;
-  max-width: 150px;
+  max-width: 150px; 
 }
 
 ul.sub-menu li:last-child {
@@ -620,16 +626,14 @@ ul.sub-menu li:last-child {
 }
 
 .mean-container .mean-bar {
-  background-color: #1f4061;
-  position: absolute;
+  background-color: #051922;
+  position: fixed;
   right: 0;
-  top: 3px;
-    width: 100%;
 
 }
 
 .mean-bar a.meanmenu-reveal {
-  background-color: #1f4061;
+  background-color: #051922;
 }
 
 .main-menu-wrap {
@@ -719,7 +723,7 @@ nav.main-menu li a {
 }
 
 .sticky-wrapper {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -728,7 +732,8 @@ nav.main-menu li a {
 
 .sticky-wrapper.is-sticky .top-header-area {
   background-color: #051922;
-  padding: 15px 0;
+  width: 100%;
+
 }
 
 .top-header-area {
@@ -789,7 +794,6 @@ a.mobile-show {
   border: none;
   padding: 15px;
   width: 60%;
-  background-color: transparent;
   border-bottom: 1px solid #1f4061;
   display: block;
   margin: 0 auto;
