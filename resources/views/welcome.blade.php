@@ -308,15 +308,15 @@
 
 
 <div class="container mt-5">
-    <div class="d-flex justify-content-between align-items-center prod">
-        <span class="d-flex align-items-center ">
+    <div class="d-flex justify-content-between align-items-center prod h-52">
+        <span class="d-flex align-items-center h-52 ">
             <h2 class="text-left small-screen-h2 mb-3 ">Lunette Solaire Femme</h2>
             {{-- <img src="assets/img/lsh.png" style="width: 3%; height: 3%; margin-bottom: 2%; margin-left:1%" alt=""> --}}
         </span>
         <button class="btn text-white mb-3 size" style="background-color: #508CA4">Afficher plus <i class="fas fa-eye"></i></button>
     </div>
 
-    <div id="productCarousel1" class="carousel slide" data-ride="carousel">
+    <div id="productCarousel2" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             @foreach ($lunettesSolairesFemme->chunk(4) as $chunk)
                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
@@ -324,7 +324,7 @@
                         @foreach ($chunk as $lunetteSolaire)
                             <div class="col-6 col-md-3">
                                 <div class="card">
-                                    <a href="{{ route('products.show', ['type' => 'lunettesOptiques', 'id' => $lunetteSolaire->id]) }}">
+                                    <a href="{{ route('products.show', ['type' => 'lunettesSolaires', 'id' => $lunetteSolaire->id]) }}">
                                         <img src="{{ asset('produit/solaires/' .$lunetteSolaire->cover) }}"alt="{{ $lunetteSolaire->reference }}" loading="lazy">
 
                                         <div class="card-img-overlay">
@@ -342,11 +342,11 @@
                 </div>
             @endforeach
         </div>
-        <a class="carousel-control-prev" href="#productCarousel1" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#productCarousel2" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#productCarousel1" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#productCarousel2" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
