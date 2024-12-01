@@ -14,7 +14,8 @@
     "jquery": "^3.4.1",
     "jquery-file-upload": "4.0.5",
     "perfect-scrollbar": "1.3.0",
-    "popper.js": "1.14.7"
+    "popper.js": "1.14.7",
+    "Spica_admin_Free": "file:"
   },
   "devDependencies": {
     "browser-sync": "^2.16.0",
